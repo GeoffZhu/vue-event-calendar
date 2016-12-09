@@ -35,13 +35,23 @@ export default {
   },
   computed: {
     dayEventsTitle () {
-      if (this.dayEvents.title !== 'all') {
-        let tempDate = Date.parse(new Date(this.dayEvents.events[0].date))
-        return dateTimeFormatter(tempDate, i18n[this.locale].fullFormat)
+      if (this.dayEvents.date !== 'all') {
+        if (this.dayEvents.events.length !== 0) {
+          let tempDate = Date.parse(new Date(this.dayEvents.events[0].date))
+          return dateTimeFormatter(tempDate, i18n[this.locale].fullFormat)
+        } else {
+          return i18n[this.locale].notHaveEvents
+        }
       } else {
         return i18n[this.locale].dayEventsTitle
       }
+    },
+    events () {
+      return dayEvents.events
     }
+  },
+  created () {
+    // console.log(this)
   },
   methods: {
     dateTimeFormatter

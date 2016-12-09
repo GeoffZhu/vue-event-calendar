@@ -1,11 +1,15 @@
 {
   "name": "vue-event-calendar",
-  "description": "A simple calendar to mark events for Vue2 ",
-  "version": "1.0.1",
-  "author": "朱陶然 <geoffzhu1992@gmail.com>",
+  "description": "A simple calendar to mark events for Vue2",
+  "version": "1.0.2",
+  "author": "geoffzhu <geoffzhu1992@gmail.com>",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --inline --hot",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GeoffZhu/vue-event-calendar"
   },
   "main": "dist/index.js",
   "dependencies": {
@@ -24,5 +28,14 @@
     "vue-template-compiler": "^2.1.0",
     "webpack": "^2.1.0-beta.25",
     "webpack-dev-server": "^2.1.0-beta.0"
-  }
+  },
+  "keywords": [
+    "vue",
+    "eventcalendar",
+    "vue-event-calendar"
+  ],
+  "bugs": {
+    "url": "https://github.com/GeoffZhu/vue-event-calendar/issues"
+  },
+  "homepage": "http://geoffzhu.cn/vue-event-calendar/"
 }

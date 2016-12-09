@@ -17,8 +17,19 @@ export default {
       },{
         date: '2016/11/12',
         title: 'this is a title'
+      }],
+      events2: [{
+        date: '2016/12/15',
+        title: 'eat',
+        desc: 'longlonglong description'
+      },{
+        date: '2016/11/12',
+        title: 'this is a title'
       }]
     }
+  },
+  created () {
+    // this.$Calendar.toDate('2015/02/01')
   }
 }
 </script>

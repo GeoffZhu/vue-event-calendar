@@ -15,8 +15,17 @@ function install(Vue, options = {}) {
         bindEventBus (vm) {
             this.$vm = vm
         },
-        init (events) {
-            this.$vm.CALENDAR_EVENTS_DATA.events = events || []
+        toDate (dateString) {
+            let dateArr = dateString.split('/')
+            dateArr = dateArr.map((item) => {
+                return parseInt(item, 10)
+            })
+            this.$vm.CALENDAR_EVENTS_DATA.params = {
+                curYear: dateArr[0],
+                curMonth: dateArr[1]-1,
+                curDate: dateArr[2],
+                curEventsDate: dateString
+            }
         },
         nextMonth () {
             if (this.$vm.CALENDAR_EVENTS_DATA.params.curMonth < 11) {
@@ -45,9 +54,9 @@ function install(Vue, options = {}) {
                 params: {
                     curYear: dateObj.getFullYear(),
                     curMonth: dateObj.getMonth(),
-                    curDate: dateObj.getDate()
-                },
-                events: []
+                    curDate: dateObj.getDate(),
+                    curEventsDate: 'all'
+                }
             }
         }
     })

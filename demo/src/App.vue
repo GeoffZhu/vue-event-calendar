@@ -12,11 +12,11 @@ export default {
     return {
       events: [{
         date: '2016/12/15',
-        title: '喝水',
-        desc: 'hdasdhiodwidaojio'
+        title: 'event title',
+        desc: 'long long description'
       },{
         date: '2016/11/12',
-        title: '喝水'
+        title: 'eat'
       }]
     }
   }

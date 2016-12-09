@@ -1,46 +1,32 @@
 <template>
   <div class="__vev_calendar-wrapper">
-    <div class="cal-wrapper">
-      <div class="cal-header">
-        <div class="l" @click="preMonth"><div class="arrow-left icon">&nbsp</div></div>
-        <div class="title">{{curYearMonth}}</div>
-        <div class="r" @click="nextMonth"><div class="arrow-right icon">&nbsp</div></div>
-      </div>
-      <div class="cal-body">
-        <div class="weeks">
-          <span v-for="dayName in i18n[calendar.options.locale].dayNames" class="item">{{dayName}}</span>
-        </div>
-        <div class="dates" >
-          <div v-for="date in dayList" class="item"
-            :class="{
-              today: date.status ? (today==date.date) : false,
-              event: date.status ? (date.title != undefined) : false
-            }">
-            <p class="date-num" @click="handleChangeCurday(date)">{{date.status ? date.date.split('/')[2] : '&nbsp'}}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <cal-events :dayEvents="dayEvents" :locale="calendar.options.locale"></cal-events>
+    <cal-panel
+      :events="events"
+      :calendar="calendarOptions"
+      @cur-day-changed="handleChangeCurDay">
+    </cal-panel>
+    <cal-events
+      :dayEvents="selectdDayEvents"
+      :locale="calendarOptions.options.locale">
+    </cal-events>
   </div>
 </template>
 <script>
-import i18n from './i18n.js'
-import { dateTimeFormatter } from './tools.js'
 import calEvents from './components/cal-events.vue'
+import calPanel from './components/cal-panel.vue'
 
 const inBrowser = typeof window !== 'undefined'
 export default {
-  name: 'vueEventCalendar',
+  name: 'vue-event-calendar',
   components: {
-    'cal-events': calEvents
+    'cal-events': calEvents,
+    'cal-panel': calPanel
   },
   data () {
     return {
-      i18n,
-      dayEvents: {
-        title: 'all',
-        events: this.events || []
+      selectdDayEvents: {
+        date: 'all',
+        events: this.events || []  //default show all event
       }
     }
   },
@@ -51,87 +37,46 @@ export default {
     }
   },
   computed: {
-    calendar () {
+    calendarOptions () {
+      let dateObj = new Date()
       if (inBrowser) {
           return window.VueCalendarBarEventBus.CALENDAR_EVENTS_DATA
       } else {
         return {
-          percent: 0,
           options: {
-            canSuccess: true,
-            show: false,
-            color: 'rgb(19, 91, 55)',
-            failedColor: 'red',
-            thickness: '2px',
-            transition: {
-                speed: '0.2s',
-                opacity: '0.6s'
-            },
-            location: 'top',
-            autoRevert: true,
-            inverse: false
-          }
+            locale: 'en', //zh
+            color: ' #f29543'
+          },
+          params: {
+              curYear: dateObj.getFullYear(),
+              curMonth: dateObj.getMonth(),
+              curDate: dateObj.getDate(),
+              curEvents: {
+                title: 'all'
+              }
+          },
+          events: []
         }
       }
-    },
-    dayList () {
-        let firstDay = new Date(this.calendar.params.curYear+'/'+(this.calendar.params.curMonth+1)+'/01')
-        let startTimestamp = firstDay-1000*60*60*24*firstDay.getDay()
-        let item, status, tempArr = [], tempItem
-        for (let i = 0 ; i < 42 ; i++) {
-            item = new Date(startTimestamp + i*1000*60*60*24)
-            if (this.calendar.params.curMonth === item.getMonth()) {
-              status = 1
-            } else {
-              status = 0
-            }
-            tempItem = {
-              date: `${item.getFullYear()}/${item.getMonth()+1}/${item.getDate()}`,
-              status: status
-            }
-            this.calendar.events.forEach((event) => {
-              if (event.date === tempItem.date) {
-                tempItem.title = event.title
-                tempItem.desc = event.desc || ''
-              }
-            })
-            tempArr.push(tempItem)
-        }
-        return tempArr
-    },
-    today () {
-      let dateObj = new Date()
-      return `${dateObj.getFullYear()}/${dateObj.getMonth()+1}/${dateObj.getDate()}`
-    },
-    curYearMonth () {
-      let tempDate = Date.parse(new Date(`${this.calendar.params.curYear}/${this.calendar.params.curMonth+1}/01`))
-      return dateTimeFormatter(tempDate, this.i18n[this.calendar.options.locale].format)
     }
   },
   created () {
-    this.$Calendar.init(this.events)
+    if (this.calendarOptions.params.curEventsDate !== 'all') {
+      this.handleChangeCurDay(this.calendarOptions.params.curEventsDate)
+    }
   },
   methods: {
-    nextMonth () {
-      this.$Calendar.nextMonth()
-    },
-    preMonth () {
-      this.$Calendar.preMonth()
-    },
-    handleChangeCurday (date) {
-      if (date.title != undefined) {
-        this.dayEvents = {
-          title: date.date,
-          events: this.calendar.events.filter(function(event) {
-            if (event.date === date.date) {
-              return true
-            } else {
-              return false
-            }
-          })
-        }
+    handleChangeCurDay (date) {
+      this.selectdDayEvents = {
+        date: date,
+        events: this.events.filter(function(event) {
+          if (event.date === date) {
+            return true
+          } else {
+            return false
+          }
+        })
       }
-      console.log(this.dayEvents)
     }
   }
 }

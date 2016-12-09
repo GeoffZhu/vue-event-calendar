@@ -71,7 +71,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 12);
+/******/ 	return __webpack_require__(__webpack_require__.s = 15);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -85,14 +85,16 @@ return /******/ (function(modules) { // webpackBootstrap
     monthNames: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
     format: 'MM/yyyy',
     fullFormat: 'dd/MM/yyyy',
-    dayEventsTitle: 'All Events'
+    dayEventsTitle: 'All Events',
+    notHaveEvents: 'Not Have Events'
   },
   zh: {
     dayNames: ["日", "一", "二", "三", "四", "五", "六"],
     monthNames: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
     format: 'yyyy年MM月',
     fullFormat: 'yyyy年MM月dd日',
-    dayEventsTitle: '全部事件'
+    dayEventsTitle: '全部事件',
+    notHaveEvents: '没有事件'
   }
 };
 
@@ -158,10 +160,10 @@ var __vue_styles__ = {}
 __webpack_require__(6)
 
 /* script */
-__vue_exports__ = __webpack_require__(11)
+__vue_exports__ = __webpack_require__(14)
 
 /* template */
-var __vue_template__ = __webpack_require__(8)
+var __vue_template__ = __webpack_require__(9)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -505,10 +507,10 @@ var __vue_exports__, __vue_options__
 var __vue_styles__ = {}
 
 /* script */
-__vue_exports__ = __webpack_require__(10)
+__vue_exports__ = __webpack_require__(12)
 
 /* template */
-var __vue_template__ = __webpack_require__(9)
+var __vue_template__ = __webpack_require__(10)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -528,12 +530,86 @@ module.exports = __vue_exports__
 
 /***/ },
 /* 8 */
+/***/ function(module, exports, __webpack_require__) {
+
+var __vue_exports__, __vue_options__
+var __vue_styles__ = {}
+
+/* script */
+__vue_exports__ = __webpack_require__(13)
+
+/* template */
+var __vue_template__ = __webpack_require__(11)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
+
+__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+
+module.exports = __vue_exports__
+
+
+/***/ },
+/* 9 */
 /***/ function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
   return _h('div', {
     staticClass: "__vev_calendar-wrapper"
-  }, [_h('div', {
+  }, [_h('cal-panel', {
+    attrs: {
+      "events": _vm.events,
+      "calendar": _vm.calendarOptions
+    },
+    on: {
+      "cur-day-changed": _vm.handleChangeCurDay
+    }
+  }), " ", _h('cal-events', {
+    attrs: {
+      "dayEvents": _vm.selectdDayEvents,
+      "locale": _vm.calendarOptions.options.locale
+    }
+  })])
+},staticRenderFns: []}
+
+/***/ },
+/* 10 */
+/***/ function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
+  return _h('div', {
+    staticClass: "events-wrapper"
+  }, [_h('h2', {
+    staticClass: "date"
+  }, ["\n    " + _vm._s(_vm.dayEventsTitle) + "\n  "]), " ", _h('div', {
+    staticClass: "cal-events"
+  }, [_vm._l((_vm.dayEvents.events), function(event, index) {
+    return _h('div', {
+      staticClass: "event-item"
+    }, [_h('h3', {
+      staticClass: "title"
+    }, [_vm._s(index + 1) + ". " + _vm._s(event.title)]), " ", _h('p', {
+      staticClass: "time"
+    }, [_vm._s(_vm.dateTimeFormatter(Date.parse(new Date(event.date)), _vm.i18n[_vm.locale].fullFormat))]), " ", _h('p', {
+      staticClass: "desc"
+    }, [_vm._s(event.desc)])])
+  })])])
+},staticRenderFns: []}
+
+/***/ },
+/* 11 */
+/***/ function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
+  return _h('div', {
     staticClass: "cal-wrapper"
   }, [_h('div', {
     staticClass: "cal-header"
@@ -578,40 +654,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
         }
       }
     }, [_vm._s(date.status ? date.date.split('/')[2] : ' ')])])
-  })])])]), " ", _h('cal-events', {
-    attrs: {
-      "dayEvents": _vm.dayEvents,
-      "locale": _vm.calendar.options.locale
-    }
-  })])
+  })])])])
 },staticRenderFns: []}
 
 /***/ },
-/* 9 */
-/***/ function(module, exports) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
-  return _h('div', {
-    staticClass: "events-wrapper"
-  }, [_h('h2', {
-    staticClass: "date"
-  }, ["\n    " + _vm._s(_vm.dayEventsTitle) + "\n  "]), " ", _h('div', {
-    staticClass: "cal-events"
-  }, [_vm._l((_vm.dayEvents.events), function(event, index) {
-    return _h('div', {
-      staticClass: "event-item"
-    }, [_h('h3', {
-      staticClass: "title"
-    }, [_vm._s(index + 1) + ". " + _vm._s(event.title)]), " ", _h('p', {
-      staticClass: "time"
-    }, [_vm._s(_vm.dateTimeFormatter(Date.parse(new Date(event.date)), _vm.i18n[_vm.locale].fullFormat))]), " ", _h('p', {
-      staticClass: "desc"
-    }, [_vm._s(event.desc)])])
-  })])])
-},staticRenderFns: []}
-
-/***/ },
-/* 10 */
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -655,28 +702,37 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
   },
   computed: {
     dayEventsTitle: function dayEventsTitle() {
-      if (this.dayEvents.title !== 'all') {
-        var tempDate = Date.parse(new Date(this.dayEvents.events[0].date));
-        return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__tools_js__["a" /* dateTimeFormatter */])(tempDate, __WEBPACK_IMPORTED_MODULE_0__i18n_js__["a" /* default */][this.locale].fullFormat);
+      if (this.dayEvents.date !== 'all') {
+        if (this.dayEvents.events.length !== 0) {
+          var tempDate = Date.parse(new Date(this.dayEvents.events[0].date));
+          return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__tools_js__["a" /* dateTimeFormatter */])(tempDate, __WEBPACK_IMPORTED_MODULE_0__i18n_js__["a" /* default */][this.locale].fullFormat);
+        } else {
+          return __WEBPACK_IMPORTED_MODULE_0__i18n_js__["a" /* default */][this.locale].notHaveEvents;
+        }
       } else {
         return __WEBPACK_IMPORTED_MODULE_0__i18n_js__["a" /* default */][this.locale].dayEventsTitle;
       }
+    },
+    events: function events() {
+      return dayEvents.events;
     }
   },
+  created: function created() {
+    // console.log(this)
+  },
+
   methods: {
     dateTimeFormatter: __WEBPACK_IMPORTED_MODULE_1__tools_js__["a" /* dateTimeFormatter */]
   }
 };
 
 /***/ },
-/* 11 */
+/* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__i18n_js__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__tools_js__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_cal_events_vue__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_cal_events_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_cal_events_vue__);
 //
 //
 //
@@ -701,26 +757,16 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
 //
 //
 //
-//
-//
-
 
 
 
 
 var inBrowser = typeof window !== 'undefined';
 /* harmony default export */ exports["default"] = {
-  name: 'vueEventCalendar',
-  components: {
-    'cal-events': __WEBPACK_IMPORTED_MODULE_2__components_cal_events_vue___default.a
-  },
+  name: 'cal-panel',
   data: function data() {
     return {
-      i18n: __WEBPACK_IMPORTED_MODULE_0__i18n_js__["a" /* default */],
-      dayEvents: {
-        title: 'all',
-        events: this.events || []
-      }
+      i18n: __WEBPACK_IMPORTED_MODULE_0__i18n_js__["a" /* default */]
     };
   },
 
@@ -728,32 +774,13 @@ var inBrowser = typeof window !== 'undefined';
     events: {
       type: Array,
       required: true
+    },
+    calendar: {
+      type: Object,
+      required: true
     }
   },
   computed: {
-    calendar: function calendar() {
-      if (inBrowser) {
-        return window.VueCalendarBarEventBus.CALENDAR_EVENTS_DATA;
-      } else {
-        return {
-          percent: 0,
-          options: {
-            canSuccess: true,
-            show: false,
-            color: 'rgb(19, 91, 55)',
-            failedColor: 'red',
-            thickness: '2px',
-            transition: {
-              speed: '0.2s',
-              opacity: '0.6s'
-            },
-            location: 'top',
-            autoRevert: true,
-            inverse: false
-          }
-        };
-      }
-    },
     dayList: function dayList() {
       var firstDay = new Date(this.calendar.params.curYear + '/' + (this.calendar.params.curMonth + 1) + '/01');
       var startTimestamp = firstDay - 1000 * 60 * 60 * 24 * firstDay.getDay();
@@ -772,7 +799,7 @@ var inBrowser = typeof window !== 'undefined';
           date: item.getFullYear() + '/' + (item.getMonth() + 1) + '/' + item.getDate(),
           status: status
         };
-        this.calendar.events.forEach(function (event) {
+        this.events.forEach(function (event) {
           if (event.date === tempItem.date) {
             tempItem.title = event.title;
             tempItem.desc = event.desc || '';
@@ -791,10 +818,6 @@ var inBrowser = typeof window !== 'undefined';
       return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__tools_js__["a" /* dateTimeFormatter */])(tempDate, this.i18n[this.calendar.options.locale].format);
     }
   },
-  created: function created() {
-    this.$Calendar.init(this.events);
-  },
-
   methods: {
     nextMonth: function nextMonth() {
       this.$Calendar.nextMonth();
@@ -804,24 +827,108 @@ var inBrowser = typeof window !== 'undefined';
     },
     handleChangeCurday: function handleChangeCurday(date) {
       if (date.title != undefined) {
-        this.dayEvents = {
-          title: date.date,
-          events: this.calendar.events.filter(function (event) {
-            if (event.date === date.date) {
-              return true;
-            } else {
-              return false;
-            }
-          })
-        };
+        this.$emit('cur-day-changed', date.date);
       }
-      console.log(this.dayEvents);
     }
   }
 };
 
 /***/ },
-/* 12 */
+/* 14 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_cal_events_vue__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_cal_events_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_cal_events_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_cal_panel_vue__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_cal_panel_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_cal_panel_vue__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+var inBrowser = typeof window !== 'undefined';
+/* harmony default export */ exports["default"] = {
+  name: 'vue-event-calendar',
+  components: {
+    'cal-events': __WEBPACK_IMPORTED_MODULE_0__components_cal_events_vue___default.a,
+    'cal-panel': __WEBPACK_IMPORTED_MODULE_1__components_cal_panel_vue___default.a
+  },
+  data: function data() {
+    return {
+      selectdDayEvents: {
+        date: 'all',
+        events: this.events || [] //default show all event
+      }
+    };
+  },
+
+  props: {
+    events: {
+      type: Array,
+      required: true
+    }
+  },
+  computed: {
+    calendarOptions: function calendarOptions() {
+      var dateObj = new Date();
+      if (inBrowser) {
+        return window.VueCalendarBarEventBus.CALENDAR_EVENTS_DATA;
+      } else {
+        return {
+          options: {
+            locale: 'en', //zh
+            color: ' #f29543'
+          },
+          params: {
+            curYear: dateObj.getFullYear(),
+            curMonth: dateObj.getMonth(),
+            curDate: dateObj.getDate(),
+            curEvents: {
+              title: 'all'
+            }
+          },
+          events: []
+        };
+      }
+    }
+  },
+  created: function created() {
+    if (this.calendarOptions.params.curEventsDate !== 'all') {
+      this.handleChangeCurDay(this.calendarOptions.params.curEventsDate);
+    }
+  },
+
+  methods: {
+    handleChangeCurDay: function handleChangeCurDay(date) {
+      this.selectdDayEvents = {
+        date: date,
+        events: this.events.filter(function (event) {
+          if (event.date === date) {
+            return true;
+          } else {
+            return false;
+          }
+        })
+      };
+    }
+  }
+};
+
+/***/ },
+/* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -847,8 +954,17 @@ function install(Vue) {
         bindEventBus: function bindEventBus(vm) {
             this.$vm = vm;
         },
-        init: function init(events) {
-            this.$vm.CALENDAR_EVENTS_DATA.events = events || [];
+        toDate: function toDate(dateString) {
+            var dateArr = dateString.split('/');
+            dateArr = dateArr.map(function (item) {
+                return parseInt(item, 10);
+            });
+            this.$vm.CALENDAR_EVENTS_DATA.params = {
+                curYear: dateArr[0],
+                curMonth: dateArr[1] - 1,
+                curDate: dateArr[2],
+                curEventsDate: dateString
+            };
         },
         nextMonth: function nextMonth() {
             if (this.$vm.CALENDAR_EVENTS_DATA.params.curMonth < 11) {
@@ -877,9 +993,9 @@ function install(Vue) {
                 params: {
                     curYear: dateObj.getFullYear(),
                     curMonth: dateObj.getMonth(),
-                    curDate: dateObj.getDate()
-                },
-                events: []
+                    curDate: dateObj.getDate(),
+                    curEventsDate: 'all'
+                }
             }
         }
     });
