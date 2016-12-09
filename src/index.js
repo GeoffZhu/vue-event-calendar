@@ -1,6 +1,7 @@
 'use strict'
 
 import vueEventCalendar from './vue-event-calendar.vue'
+import vueEventItem from './components/cal-event-item.vue'
 
 function install(Vue, options = {}) {
     const isVueNext = Vue.version.split('.')[0] === '2'
@@ -67,6 +68,7 @@ function install(Vue, options = {}) {
     }
 
     Vue.component('vue-event-calendar', vueEventCalendar)
+    Vue.component('cal-event-item', vueEventItem)
 
     Vue.prototype.$Calendar = Calendar
 }

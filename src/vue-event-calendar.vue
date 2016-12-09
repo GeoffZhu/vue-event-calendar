@@ -8,6 +8,7 @@
     <cal-events
       :dayEvents="selectdDayEvents"
       :locale="calendarOptions.options.locale">
+      <slot :showEvents="selectdDayEvents.events"></slot>
     </cal-events>
   </div>
 </template>
@@ -159,12 +160,14 @@ export default {
         width: 20%;
         cursor: pointer;
         user-select: none;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
       }
       .r{
         text-align: right;
         width: 20%;
         cursor: pointer;
         user-select: none;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
       }
     }
     .cal-body{
@@ -195,6 +198,7 @@ export default {
           display: block;
           width: 14.285%;
           cursor: default;
+          -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
           .date-num{
             font-size: 1rem;
           }
@@ -259,6 +263,7 @@ export default {
       box-shadow: 0 3px 11px 2px rgba(0,0,0,.1);
       background-color: #fff;
       border-radius: 5px;
+      color: #323232;
       position: relative;
       .title{
         height: 40px;
@@ -319,7 +324,7 @@ export default {
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
 }
-p{
+h3, p{
   margin: 0;
   padding: 0;
 }

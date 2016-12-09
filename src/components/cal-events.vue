@@ -4,11 +4,11 @@
       {{dayEventsTitle}}
     </h2>
     <div class="cal-events">
-      <div v-for="(event, index) in dayEvents.events" class="event-item">
-        <h3 class="title">{{index+1}}. {{event.title}}</h3>
-        <p class="time">{{dateTimeFormatter(Date.parse(new Date(event.date)),i18n[locale].fullFormat)}}</p>
-        <p class="desc">{{event.desc}}</p>
-      </div>
+      <slot>
+        <div v-for="(event, index) in dayEvents.events" class="event-item">
+          <cal-event-item :event="event" :index="index" :locale="locale"></cal-event-item>
+        </div>
+      </slot>
     </div>
   </div>
 </template>
@@ -17,7 +17,7 @@
 import i18n from '../i18n.js'
 import { dateTimeFormatter } from '../tools.js'
 export default {
-  name: 'cal-event',
+  name: 'cal-events',
   data () {
     return {
       i18n
@@ -51,7 +51,7 @@ export default {
     }
   },
   created () {
-    // console.log(this)
+    console.log(this.$slots)
   },
   methods: {
     dateTimeFormatter
