@@ -7,7 +7,8 @@
     </cal-panel>
     <cal-events
       :dayEvents="selectdDayEvents"
-      :locale="calendarOptions.options.locale">
+      :locale="calendarOptions.options.locale"
+      :color="calendarOptions.options.color">
       <slot :showEvents="selectdDayEvents.events"></slot>
     </cal-events>
   </div>
@@ -202,14 +203,13 @@ export default {
           .date-num{
             font-size: 1rem;
           }
-
           &.event{
-            color: #f29543;
+            color: @base-orange;
             cursor: pointer;
           }
-          &.event:after{
+          .is-event{
             content: '';
-            border: 1px solid #f29543;
+            border: 1px solid @base-orange;
             background-color: #fff;
             border-radius: 50%;
             width: 36px;
@@ -224,10 +224,10 @@ export default {
           &.today{
             color: @white;
           }
-          &.today:before{
+          .is-today{
             content: '';
-            border: 1px solid #f29543;
-            background-color: #f29543;
+            border: 1px solid @base-orange;
+            background-color: @base-orange;
             border-radius: 50%;
             width: 36px;
             height: 36px;

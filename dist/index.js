@@ -219,7 +219,7 @@ exports = module.exports = __webpack_require__(5)();
 
 
 // module
-exports.push([module.i, "@media screen and (min-width:768px){.__vev_calendar-wrapper{max-width:1200px;margin:0 auto}.__vev_calendar-wrapper .cal-wrapper{width:50%;padding:100px 50px}.__vev_calendar-wrapper .cal-wrapper .date-num{line-height:50px}.__vev_calendar-wrapper .events-wrapper{width:50%;background-color:#f29543;color:#fff;padding:40px 50px;position:absolute;left:50%;top:0;bottom:0}}@media screen and (max-width:768px){.__vev_calendar-wrapper .cal-wrapper{width:100%;padding:10px 5px}.__vev_calendar-wrapper .cal-wrapper .date-num{line-height:42px}.__vev_calendar-wrapper .events-wrapper{width:100%;margin-top:10px;padding:10px}}.__vev_calendar-wrapper{position:relative;overflow:hidden;width:100%}.__vev_calendar-wrapper *{box-sizing:border-box}.__vev_calendar-wrapper .cal-wrapper .cal-header{position:relative;width:100%;background-color:#fff;font-weight:500;overflow:hidden;padding-bottom:10px}.__vev_calendar-wrapper .cal-wrapper .cal-header>div{float:left;line-height:20px;padding:15px}.__vev_calendar-wrapper .cal-wrapper .cal-header .title{width:60%;text-align:center}.__vev_calendar-wrapper .cal-wrapper .cal-header .l{text-align:left;width:20%;cursor:pointer;user-select:none}.__vev_calendar-wrapper .cal-wrapper .cal-header .r{text-align:right;width:20%;cursor:pointer;user-select:none}.__vev_calendar-wrapper .cal-wrapper .cal-body{width:100%}.__vev_calendar-wrapper .cal-wrapper .cal-body .weeks{width:100%;overflow:hidden;text-align:center;font-size:1rem}.__vev_calendar-wrapper .cal-wrapper .cal-body .weeks .item{line-height:50px;float:left;width:14.285%}.__vev_calendar-wrapper .cal-wrapper .cal-body .dates{width:100%;overflow:hidden;text-align:center;font-size:1rem}.__vev_calendar-wrapper .cal-wrapper .cal-body .dates .item{position:relative;float:left;display:block;width:14.285%;cursor:default}.__vev_calendar-wrapper .cal-wrapper .cal-body .dates .item .date-num{font-size:1rem}.__vev_calendar-wrapper .cal-wrapper .cal-body .dates .item.event{color:#f29543;cursor:pointer}.__vev_calendar-wrapper .cal-wrapper .cal-body .dates .item.event:after{content:'';border:1px solid #f29543;background-color:#fff;border-radius:50%;width:36px;height:36px;position:absolute;left:50%;top:50%;z-index:-2;margin-left:-18px;margin-top:-19px}.__vev_calendar-wrapper .cal-wrapper .cal-body .dates .item.today{color:#fff}.__vev_calendar-wrapper .cal-wrapper .cal-body .dates .item.today:before{content:'';border:1px solid #f29543;background-color:#f29543;border-radius:50%;width:36px;height:36px;position:absolute;left:50%;top:50%;z-index:-1;margin-left:-18px;margin-top:-19px}.__vev_calendar-wrapper .events-wrapper{border-radius:10px}.__vev_calendar-wrapper .events-wrapper .cal-events{height:100%}.__vev_calendar-wrapper .events-wrapper .date{width:40%;min-width:200px;text-align:center;color:#fff;background-color:rgba(0,0,0,.2);border-radius:20px;margin:0 auto;font-size:22px}.__vev_calendar-wrapper .events-wrapper .event-item{padding:5px 20px;margin-top:15px;box-shadow:0 3px 11px 2px rgba(0,0,0,.1);background-color:#fff;border-radius:5px;color:#323232;position:relative}.__vev_calendar-wrapper .events-wrapper .event-item .title{height:40px;line-height:40px;color:#323232;font-size:16px;border-bottom:1px solid #f2f2f2}.__vev_calendar-wrapper .events-wrapper .event-item .time{position:absolute;right:30px;top:17px;color:#9b9b9b;font-size:14px}.__vev_calendar-wrapper .events-wrapper .event-item .desc{color:#9b9b9b;font-size:14px;padding:7px 0}.arrow-left.icon{color:#000;position:absolute;left:6%;margin-top:10px}.arrow-left.icon:before{content:'';position:absolute;left:1px;top:-5px;width:10px;height:10px;border-top:1px solid currentColor;border-right:1px solid currentColor;-webkit-transform:rotate(-135deg);transform:rotate(-135deg)}.arrow-right.icon{color:#000;position:absolute;right:6%;margin-top:10px}.arrow-right.icon:before{content:'';position:absolute;right:1px;top:-5px;width:10px;height:10px;border-top:1px solid currentColor;border-right:1px solid currentColor;-webkit-transform:rotate(45deg);transform:rotate(45deg)}p{margin:0;padding:0}", ""]);
+exports.push([module.i, "@media screen and (min-width:768px){.__vev_calendar-wrapper{max-width:1200px;margin:0 auto}.__vev_calendar-wrapper .cal-wrapper{width:50%;padding:100px 50px}.__vev_calendar-wrapper .cal-wrapper .date-num{line-height:50px}.__vev_calendar-wrapper .events-wrapper{width:50%;background-color:#f29543;color:#fff;padding:40px 50px;position:absolute;left:50%;top:0;bottom:0}}@media screen and (max-width:768px){.__vev_calendar-wrapper .cal-wrapper{width:100%;padding:10px 5px}.__vev_calendar-wrapper .cal-wrapper .date-num{line-height:42px}.__vev_calendar-wrapper .events-wrapper{width:100%;margin-top:10px;padding:10px}}.__vev_calendar-wrapper{position:relative;overflow:hidden;width:100%}.__vev_calendar-wrapper *{box-sizing:border-box}.__vev_calendar-wrapper .cal-wrapper .cal-header{position:relative;width:100%;background-color:#fff;font-weight:500;overflow:hidden;padding-bottom:10px}.__vev_calendar-wrapper .cal-wrapper .cal-header>div{float:left;line-height:20px;padding:15px}.__vev_calendar-wrapper .cal-wrapper .cal-header .title{width:60%;text-align:center}.__vev_calendar-wrapper .cal-wrapper .cal-header .l{text-align:left;width:20%;cursor:pointer;user-select:none;-webkit-tap-highlight-color:rgba(0,0,0,0)}.__vev_calendar-wrapper .cal-wrapper .cal-header .r{text-align:right;width:20%;cursor:pointer;user-select:none;-webkit-tap-highlight-color:rgba(0,0,0,0)}.__vev_calendar-wrapper .cal-wrapper .cal-body{width:100%}.__vev_calendar-wrapper .cal-wrapper .cal-body .weeks{width:100%;overflow:hidden;text-align:center;font-size:1rem}.__vev_calendar-wrapper .cal-wrapper .cal-body .weeks .item{line-height:50px;float:left;width:14.285%}.__vev_calendar-wrapper .cal-wrapper .cal-body .dates{width:100%;overflow:hidden;text-align:center;font-size:1rem}.__vev_calendar-wrapper .cal-wrapper .cal-body .dates .item{position:relative;float:left;display:block;width:14.285%;cursor:default;-webkit-tap-highlight-color:rgba(0,0,0,0)}.__vev_calendar-wrapper .cal-wrapper .cal-body .dates .item .date-num{font-size:1rem}.__vev_calendar-wrapper .cal-wrapper .cal-body .dates .item.event{color:#f29543;cursor:pointer}.__vev_calendar-wrapper .cal-wrapper .cal-body .dates .item .is-event{content:'';border:1px solid #f29543;background-color:#fff;border-radius:50%;width:36px;height:36px;position:absolute;left:50%;top:50%;z-index:-2;margin-left:-18px;margin-top:-19px}.__vev_calendar-wrapper .cal-wrapper .cal-body .dates .item.today{color:#fff}.__vev_calendar-wrapper .cal-wrapper .cal-body .dates .item .is-today{content:'';border:1px solid #f29543;background-color:#f29543;border-radius:50%;width:36px;height:36px;position:absolute;left:50%;top:50%;z-index:-1;margin-left:-18px;margin-top:-19px}.__vev_calendar-wrapper .events-wrapper{border-radius:10px}.__vev_calendar-wrapper .events-wrapper .cal-events{height:100%}.__vev_calendar-wrapper .events-wrapper .date{width:40%;min-width:200px;text-align:center;color:#fff;background-color:rgba(0,0,0,.2);border-radius:20px;margin:0 auto;font-size:22px}.__vev_calendar-wrapper .events-wrapper .event-item{padding:5px 20px;margin-top:15px;box-shadow:0 3px 11px 2px rgba(0,0,0,.1);background-color:#fff;border-radius:5px;color:#323232;position:relative}.__vev_calendar-wrapper .events-wrapper .event-item .title{height:40px;line-height:40px;color:#323232;font-size:16px;border-bottom:1px solid #f2f2f2}.__vev_calendar-wrapper .events-wrapper .event-item .time{position:absolute;right:30px;top:17px;color:#9b9b9b;font-size:14px}.__vev_calendar-wrapper .events-wrapper .event-item .desc{color:#9b9b9b;font-size:14px;padding:7px 0}.arrow-left.icon{color:#000;position:absolute;left:6%;margin-top:10px}.arrow-left.icon:before{content:'';position:absolute;left:1px;top:-5px;width:10px;height:10px;border-top:1px solid currentColor;border-right:1px solid currentColor;-webkit-transform:rotate(-135deg);transform:rotate(-135deg)}.arrow-right.icon{color:#000;position:absolute;right:6%;margin-top:10px}.arrow-right.icon:before{content:'';position:absolute;right:1px;top:-5px;width:10px;height:10px;border-top:1px solid currentColor;border-right:1px solid currentColor;-webkit-transform:rotate(45deg);transform:rotate(45deg)}h3,p{margin:0;padding:0}", ""]);
 
 // exports
 
@@ -620,7 +620,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
   }), " ", _h('cal-events', {
     attrs: {
       "dayEvents": _vm.selectdDayEvents,
-      "locale": _vm.calendarOptions.options.locale
+      "locale": _vm.calendarOptions.options.locale,
+      "color": _vm.calendarOptions.options.color
     }
   }, [_vm._t("default", null, {
     showEvents: _vm.selectdDayEvents.events
@@ -633,7 +634,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
   return _h('div', {
-    staticClass: "events-wrapper"
+    staticClass: "events-wrapper",
+    style: (_vm.bgColor)
   }, [_h('h2', {
     staticClass: "date"
   }, ["\n    " + _vm._s(_vm.dayEventsTitle) + "\n  "]), " ", _h('div', {
@@ -695,12 +697,21 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
       }
     }, [_h('p', {
       staticClass: "date-num",
+      style: ({
+        color: (date.title != undefined) ? _vm.calendar.options.color : 'inherit'
+      }),
       on: {
         "click": function($event) {
           _vm.handleChangeCurday(date)
         }
       }
-    }, [_vm._s(date.status ? date.date.split('/')[2] : ' ')])])
+    }, [_vm._s(date.status ? date.date.split('/')[2] : ' ')]), " ", (date.status ? (_vm.today == date.date) : false) ? _h('span', {
+      staticClass: "is-today",
+      style: (_vm.style.todayStyle)
+    }) : _vm._e(), " ", (date.status ? (date.title != undefined) : false) ? _h('span', {
+      staticClass: "is-event",
+      style: (_vm.style.eventStyle)
+    }) : _vm._e()])
   })])])])
 },staticRenderFns: []}
 
@@ -754,6 +765,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__i18n_js__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__tools_js__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cal_event_item_vue__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cal_event_item_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__cal_event_item_vue__);
 //
 //
 //
@@ -769,6 +782,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
 //
 //
 //
+
 
 
 
@@ -780,12 +794,19 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
     };
   },
 
+  components: {
+    'cal-event-item': __WEBPACK_IMPORTED_MODULE_2__cal_event_item_vue___default.a
+  },
   props: {
     dayEvents: {
       type: Object,
       required: true
     },
     locale: {
+      type: String,
+      required: true
+    },
+    color: {
       type: String,
       required: true
     }
@@ -805,12 +826,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
     },
     events: function events() {
       return dayEvents.events;
+    },
+    bgColor: function bgColor() {
+      return { backgroundColor: this.color };
     }
   },
-  created: function created() {
-    console.log(this.$slots);
-  },
-
   methods: {
     dateTimeFormatter: __WEBPACK_IMPORTED_MODULE_1__tools_js__["a" /* dateTimeFormatter */]
   }
@@ -823,6 +843,10 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__i18n_js__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__tools_js__ = __webpack_require__(1);
+//
+//
+//
+//
 //
 //
 //
@@ -906,14 +930,26 @@ var inBrowser = typeof window !== 'undefined';
     curYearMonth: function curYearMonth() {
       var tempDate = Date.parse(new Date(this.calendar.params.curYear + '/' + (this.calendar.params.curMonth + 1) + '/01'));
       return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__tools_js__["a" /* dateTimeFormatter */])(tempDate, this.i18n[this.calendar.options.locale].format);
+    },
+    style: function style() {
+      var style = {
+        todayStyle: {
+          backgroundColor: this.calendar.options.color,
+          borderColor: this.calendar.options.color
+        },
+        eventStyle: {
+          borderColor: this.calendar.options.color
+        }
+      };
+      return style;
     }
   },
   methods: {
     nextMonth: function nextMonth() {
-      this.$Calendar.nextMonth();
+      this.$EventCalendar.nextMonth();
     },
     preMonth: function preMonth() {
-      this.$Calendar.preMonth();
+      this.$EventCalendar.preMonth();
     },
     handleChangeCurday: function handleChangeCurday(date) {
       if (date.title != undefined) {
@@ -932,6 +968,7 @@ var inBrowser = typeof window !== 'undefined';
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_cal_events_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_cal_events_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_cal_panel_vue__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_cal_panel_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_cal_panel_vue__);
+//
 //
 //
 //
@@ -1100,9 +1137,8 @@ function install(Vue) {
     }
 
     Vue.component('vue-event-calendar', __WEBPACK_IMPORTED_MODULE_0__vue_event_calendar_vue___default.a);
-    Vue.component('cal-event-item', __WEBPACK_IMPORTED_MODULE_1__components_cal_event_item_vue___default.a);
 
-    Vue.prototype.$Calendar = Calendar;
+    Vue.prototype.$EventCalendar = Calendar;
 }
 /* harmony default export */ exports["default"] = {
     install: install

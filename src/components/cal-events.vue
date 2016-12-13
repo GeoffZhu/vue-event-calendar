@@ -1,5 +1,5 @@
 <template>
-  <div class="events-wrapper">
+  <div class="events-wrapper" :style="bgColor">
     <h2 class="date">
       {{dayEventsTitle}}
     </h2>
@@ -16,6 +16,7 @@
 <script>
 import i18n from '../i18n.js'
 import { dateTimeFormatter } from '../tools.js'
+import calEventItem from './cal-event-item.vue'
 export default {
   name: 'cal-events',
   data () {
@@ -23,12 +24,19 @@ export default {
       i18n
     }
   },
+  components: {
+    'cal-event-item': calEventItem
+  },
   props: {
     dayEvents: {
       type: Object,
       required: true
     },
     locale: {
+      type: String,
+      required: true
+    },
+    color: {
       type: String,
       required: true
     }
@@ -48,10 +56,10 @@ export default {
     },
     events () {
       return dayEvents.events
+    },
+    bgColor () {
+      return {backgroundColor: this.color}
     }
-  },
-  created () {
-    console.log(this.$slots)
   },
   methods: {
     dateTimeFormatter

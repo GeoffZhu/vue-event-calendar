@@ -15,7 +15,11 @@
             today: date.status ? (today==date.date) : false,
             event: date.status ? (date.title != undefined) : false
           }">
-          <p class="date-num" @click="handleChangeCurday(date)">{{date.status ? date.date.split('/')[2] : '&nbsp'}}</p>
+          <p class="date-num"
+            @click="handleChangeCurday(date)"
+            :style="{color: (date.title != undefined) ? calendar.options.color : 'inherit'}">{{date.status ? date.date.split('/')[2] : '&nbsp'}}</p>
+          <span v-if="date.status ? (today==date.date) : false" class="is-today" :style="style.todayStyle" ></span>
+          <span v-if="date.status ? (date.title != undefined) : false" class="is-event" :style="style.eventStyle"></span>
         </div>
       </div>
     </div>
@@ -77,14 +81,26 @@ export default {
     curYearMonth () {
       let tempDate = Date.parse(new Date(`${this.calendar.params.curYear}/${this.calendar.params.curMonth+1}/01`))
       return dateTimeFormatter(tempDate, this.i18n[this.calendar.options.locale].format)
+    },
+    style () {
+      let style = {
+        todayStyle: {
+          backgroundColor: this.calendar.options.color,
+          borderColor: this.calendar.options.color
+        },
+        eventStyle: {
+          borderColor: this.calendar.options.color
+        }
+      }
+      return style
     }
   },
   methods: {
     nextMonth () {
-      this.$Calendar.nextMonth()
+      this.$EventCalendar.nextMonth()
     },
     preMonth () {
-      this.$Calendar.preMonth()
+      this.$EventCalendar.preMonth()
     },
     handleChangeCurday (date) {
       if (date.title != undefined) {
