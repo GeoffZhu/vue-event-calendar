@@ -202,6 +202,8 @@ export default {
           -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
           .date-num{
             font-size: 1rem;
+            position: relative;
+            z-index: 3;
           }
           &.event{
             color: @base-orange;
@@ -217,7 +219,7 @@ export default {
             position: absolute;
             left: 50%;
             top: 50%;
-            z-index: -2;
+            z-index: 2;
             margin-left: -18px;
             margin-top: -19px;
           }
@@ -234,7 +236,7 @@ export default {
             position: absolute;
             left: 50%;
             top: 50%;
-            z-index: -1;
+            z-index: 1;
             margin-left: -18px;
             margin-top: -19px;
           }

@@ -51,14 +51,14 @@ export default {
 ## Customization
 If you want customization event template. required Vue: ^2.1.0. Because I use new feature(Scoped Slots) of ^2.1.0
 
-### color
+#### Customization color
 
 ```javascript
 //When Vue.use, you can give a color
 Vue.use(vueEventCalendar, {locale: 'en', color: '#4fc08d'})
 ```
 
-### event template
+#### Customization event template
 ```vue
 <template>
   <vue-event-calendar :events="demoEvents">
@@ -89,7 +89,7 @@ export default {
 </script>
 ```
 
-## Api
+## API
 ```javascript
 // NextMonth
 this.$EventCalendar.nextMonth()
