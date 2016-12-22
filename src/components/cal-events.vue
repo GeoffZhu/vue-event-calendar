@@ -48,7 +48,7 @@ export default {
           let tempDate = Date.parse(new Date(this.dayEvents.events[0].date))
           return dateTimeFormatter(tempDate, i18n[this.locale].fullFormat)
         } else {
-          return i18n[this.locale].notHaveEvents
+          return this.dayEvents.date + i18n[this.locale].notHaveEvents
         }
       } else {
         return i18n[this.locale].dayEventsTitle

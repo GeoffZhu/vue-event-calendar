@@ -902,6 +902,8 @@ var inBrowser = typeof window !== 'undefined';
           status = void 0,
           tempArr = [],
           tempItem = void 0;
+      console.log(this.events);
+
       for (var i = 0; i < 42; i++) {
         item = new Date(startTimestamp + i * 1000 * 60 * 60 * 24);
         if (this.calendar.params.curMonth === item.getMonth()) {
@@ -921,6 +923,7 @@ var inBrowser = typeof window !== 'undefined';
         });
         tempArr.push(tempItem);
       }
+      console.log('arr', tempArr);
       return tempArr;
     },
     today: function today() {
@@ -1024,18 +1027,28 @@ var inBrowser = typeof window !== 'undefined';
             curYear: dateObj.getFullYear(),
             curMonth: dateObj.getMonth(),
             curDate: dateObj.getDate(),
-            curEvents: {
-              title: 'all'
-            }
-          },
-          events: []
+            curEventsDate: 'all'
+          }
+        };
+      }
+    },
+    calendarParams: function calendarParams() {
+      var dateObj = new Date();
+      if (inBrowser) {
+        return window.VueCalendarBarEventBus.CALENDAR_EVENTS_DATA.params;
+      } else {
+        return {
+          curYear: dateObj.getFullYear(),
+          curMonth: dateObj.getMonth(),
+          curDate: dateObj.getDate(),
+          curEventsDate: dateString
         };
       }
     }
   },
   created: function created() {
-    if (this.calendarOptions.params.curEventsDate !== 'all') {
-      this.handleChangeCurDay(this.calendarOptions.params.curEventsDate);
+    if (this.calendarParams.curEventsDate !== 'all') {
+      this.handleChangeCurDay(this.calendarParams.curEventsDate);
     }
   },
 
@@ -1050,6 +1063,19 @@ var inBrowser = typeof window !== 'undefined';
             return false;
           }
         })
+      };
+    }
+  },
+  watch: {
+    calendarParams: function calendarParams() {
+      if (this.calendarParams.curEventsDate !== 'all') {
+        this.handleChangeCurDay(this.calendarParams.curEventsDate);
+      }
+    },
+    events: function events() {
+      this.selectdDayEvents = {
+        date: 'all',
+        events: this.events || []
       };
     }
   }

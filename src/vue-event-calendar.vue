@@ -53,18 +53,28 @@ export default {
               curYear: dateObj.getFullYear(),
               curMonth: dateObj.getMonth(),
               curDate: dateObj.getDate(),
-              curEvents: {
-                title: 'all'
-              }
-          },
-          events: []
+              curEventsDate: 'all'
+          }
+        }
+      }
+    },
+    calendarParams () {
+      let dateObj = new Date()
+      if (inBrowser) {
+          return window.VueCalendarBarEventBus.CALENDAR_EVENTS_DATA.params
+      } else {
+        return {
+          curYear: dateObj.getFullYear(),
+          curMonth: dateObj.getMonth(),
+          curDate: dateObj.getDate(),
+          curEventsDate: dateString
         }
       }
     }
   },
   created () {
-    if (this.calendarOptions.params.curEventsDate !== 'all') {
-      this.handleChangeCurDay(this.calendarOptions.params.curEventsDate)
+    if (this.calendarParams.curEventsDate !== 'all') {
+      this.handleChangeCurDay(this.calendarParams.curEventsDate)
     }
   },
   methods: {
@@ -78,6 +88,19 @@ export default {
             return false
           }
         })
+      }
+    }
+  },
+  watch: {
+    calendarParams () {
+      if (this.calendarParams.curEventsDate !== 'all') {
+        this.handleChangeCurDay(this.calendarParams.curEventsDate)
+      }
+    },
+    events () {
+      this.selectdDayEvents = {
+        date: 'all',
+        events: this.events || []
       }
     }
   }
