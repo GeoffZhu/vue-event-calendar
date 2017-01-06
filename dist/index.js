@@ -818,7 +818,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
           var tempDate = Date.parse(new Date(this.dayEvents.events[0].date));
           return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__tools_js__["a" /* dateTimeFormatter */])(tempDate, __WEBPACK_IMPORTED_MODULE_0__i18n_js__["a" /* default */][this.locale].fullFormat);
         } else {
-          return __WEBPACK_IMPORTED_MODULE_0__i18n_js__["a" /* default */][this.locale].notHaveEvents;
+          return this.dayEvents.date + __WEBPACK_IMPORTED_MODULE_0__i18n_js__["a" /* default */][this.locale].notHaveEvents;
         }
       } else {
         return __WEBPACK_IMPORTED_MODULE_0__i18n_js__["a" /* default */][this.locale].dayEventsTitle;
@@ -902,7 +902,6 @@ var inBrowser = typeof window !== 'undefined';
           status = void 0,
           tempArr = [],
           tempItem = void 0;
-      console.log(this.events);
 
       for (var i = 0; i < 42; i++) {
         item = new Date(startTimestamp + i * 1000 * 60 * 60 * 24);
@@ -923,7 +922,6 @@ var inBrowser = typeof window !== 'undefined';
         });
         tempArr.push(tempItem);
       }
-      console.log('arr', tempArr);
       return tempArr;
     },
     today: function today() {

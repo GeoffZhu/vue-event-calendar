@@ -201,8 +201,6 @@ export default {
         overflow: hidden;
         text-align: center;
         font-size: 1rem;
-        // border-right: 1px solid @gray;
-        // border-left: 1px solid @gray;
         .item{
           line-height: 50px;
           float: left;
@@ -214,8 +212,6 @@ export default {
         overflow: hidden;
         text-align: center;
         font-size: 1rem;
-        // border-right: 1px solid @gray;
-        // border-bottom: 1px solid @gray;
         .item{
           position: relative;
           float: left;
