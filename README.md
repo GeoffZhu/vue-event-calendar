@@ -7,6 +7,7 @@
 
 [![npm version](https://img.shields.io/npm/v/vue-event-calendar.svg)](https://www.npmjs.com/package/vue-event-calendar)
 
+[中文文档](https://github.com/GeoffZhu/vue-event-calendar/blob/master/README.zh.md)
 ## Requirements
 - vue: ^2.0.0
 
@@ -20,6 +21,7 @@
 #### main.js
 
 ```javascript
+import 'vue-event-calendar/dist/style.css' //^1.1.10, CSS has been extracted as one file, so you can easily update it.
 import vueEventCalendar from 'vue-event-calendar'
 Vue.use(vueEventCalendar, {locale: 'en'}) //locale can be 'zh' or 'en'
 ```
@@ -37,11 +39,11 @@ export default {
     return {
       demoEvents: [{
         date: '2016/12/15',
-        title: 'eat',
+        title: 'Foo',
         desc: 'longlonglong description'
       },{
         date: '2016/11/12',
-        title: 'this is a title'
+        title: 'Bar'
       }]
     }
   }
@@ -54,7 +56,7 @@ If you want customization event template. required Vue: ^2.1.0. Because I use ne
 #### Customization color
 
 ```javascript
-//When Vue.use, you can give a color
+//When Vue.use, you can set main color
 Vue.use(vueEventCalendar, {locale: 'en', color: '#4fc08d'})
 ```
 

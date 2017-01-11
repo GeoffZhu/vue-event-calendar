@@ -5,7 +5,7 @@
     </h2>
     <div class="cal-events">
       <slot>
-        <div v-for="(event, index) in dayEvents.events" class="event-item">
+        <div v-for="(event, index) in events" class="event-item">
           <cal-event-item :event="event" :index="index" :locale="locale"></cal-event-item>
         </div>
       </slot>
@@ -55,7 +55,7 @@ export default {
       }
     },
     events () {
-      return dayEvents.events
+      return this.dayEvents.events
     },
     bgColor () {
       return {backgroundColor: this.color}

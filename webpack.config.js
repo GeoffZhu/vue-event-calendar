@@ -15,7 +15,16 @@ module.exports = {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: {
-          // vue-loader options go here
+          loaders: {
+            css: ExtractTextPlugin.extract({
+              loader: 'css-loader',
+              fallbackLoader: 'vue-style-loader' // <- this is a dep of vue-loader, so no need to explicitly install if using npm3
+            }),
+            less: ExtractTextPlugin.extract({
+              loader: 'css-loader!less-loader',
+              fallbackLoader: 'vue-style-loader'
+            })
+          }
         }
       },
       {
@@ -39,14 +48,14 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true,
-    noInfo: true,
-    host: '0.0.0.0'
+    noInfo: true
   },
   devtool: '#eval-source-map'
 }
 
 if (process.env.NODE_ENV === 'production') {
   module.exports.entry = './src/index.js'
+
   module.exports.output = {
     path:'./dist',
     filename:'index.js',
@@ -54,7 +63,7 @@ if (process.env.NODE_ENV === 'production') {
     libraryTarget: 'umd'
   }
   module.exports.devtool = '#source-map'
-  // http://vue-loader.vuejs.org/en/workflow/production.html
+
   module.exports.plugins = (module.exports.plugins || []).concat([
     new webpack.DefinePlugin({
       'process.env': {
@@ -63,6 +72,7 @@ if (process.env.NODE_ENV === 'production') {
     }),
     new webpack.LoaderOptionsPlugin({
       minimize: true
-    })
+    }),
+    new ExtractTextPlugin("style.css")
   ])
 }
