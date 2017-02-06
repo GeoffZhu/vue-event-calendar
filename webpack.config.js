@@ -16,20 +16,18 @@ module.exports = {
         loader: 'vue-loader',
         options: {
           loaders: {
-            css: ExtractTextPlugin.extract({
-              loader: 'css-loader',
-              fallbackLoader: 'vue-style-loader' // <- this is a dep of vue-loader, so no need to explicitly install if using npm3
-            }),
-            less: ExtractTextPlugin.extract({
-              loader: 'css-loader!less-loader',
-              fallbackLoader: 'vue-style-loader'
-            })
+
           }
         }
       },
       {
         test: /\.js$/,
         loader: 'babel-loader',
+        exclude: /node_modules/
+      },
+      {
+        test: /\.css$/,
+        loader: 'style-loader!css-loader',
         exclude: /node_modules/
       },
       {
@@ -63,7 +61,16 @@ if (process.env.NODE_ENV === 'production') {
     libraryTarget: 'umd'
   }
   module.exports.devtool = '#source-map'
-
+  module.exports.module.rules[0].options.loaders = {
+    css: ExtractTextPlugin.extract({
+      loader: 'css-loader',
+      fallbackLoader: 'vue-style-loader' // <- this is a dep of vue-loader, so no need to explicitly install if using npm3
+    }),
+    less: ExtractTextPlugin.extract({
+      loader: 'css-loader!less-loader',
+      fallbackLoader: 'vue-style-loader'
+    })
+  }
   module.exports.plugins = (module.exports.plugins || []).concat([
     new webpack.DefinePlugin({
       'process.env': {

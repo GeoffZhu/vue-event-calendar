@@ -8,6 +8,7 @@
 [![npm version](https://img.shields.io/npm/v/vue-event-calendar.svg)](https://www.npmjs.com/package/vue-event-calendar)
 
 [中文文档](https://github.com/GeoffZhu/vue-event-calendar/blob/master/README.zh.md)
+
 ## Requirements
 - vue: ^2.0.0
 

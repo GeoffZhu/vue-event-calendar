@@ -14,6 +14,8 @@
   </div>
 </template>
 <script>
+import { isEqualDateStr} from './tools.js'
+
 import calEvents from './components/cal-events.vue'
 import calPanel from './components/cal-panel.vue'
 
@@ -82,11 +84,7 @@ export default {
       this.selectdDayEvents = {
         date: date,
         events: this.events.filter(function(event) {
-          if (event.date === date) {
-            return true
-          } else {
-            return false
-          }
+          return isEqualDateStr(event.date, date)
         })
       }
     }

@@ -71,6 +71,8 @@ function install (Vue, options = {}) {
   Vue.prototype.$EventCalendar = Calendar
 }
 
+export default install
+
 if (typeof module === 'object' && module.exports) {
   module.exports.install = install
 }

@@ -28,7 +28,7 @@
 
 <script>
 import i18n from '../i18n.js'
-import { dateTimeFormatter } from '../tools.js'
+import { dateTimeFormatter, isEqualDateStr} from '../tools.js'
 
 const inBrowser = typeof window !== 'undefined'
 export default {
@@ -66,7 +66,7 @@ export default {
               status: status
             }
             this.events.forEach((event) => {
-              if (event.date === tempItem.date) {
+              if (isEqualDateStr(event.date, tempItem.date)) {
                 tempItem.title = event.title
                 tempItem.desc = event.desc || ''
               }
