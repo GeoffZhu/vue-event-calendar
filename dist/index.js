@@ -846,7 +846,7 @@ function install(Vue) {
 
   var isVueNext = Vue.version.split('.')[0] === '2';
   var inBrowser = typeof window !== 'undefined';
-
+  var dateObj = new Date();
   var DEFAULT_OPTION = {
     locale: 'zh', //en
     color: ' #f29543'
@@ -857,16 +857,26 @@ function install(Vue) {
       this.$vm = vm;
     },
     toDate: function toDate(dateString) {
-      var dateArr = dateString.split('/');
-      dateArr = dateArr.map(function (item) {
-        return parseInt(item, 10);
-      });
-      this.$vm.CALENDAR_EVENTS_DATA.params = {
-        curYear: dateArr[0],
-        curMonth: dateArr[1] - 1,
-        curDate: dateArr[2],
-        curEventsDate: dateString
-      };
+      debugger;
+      if (dateString === 'all') {
+        this.$vm.CALENDAR_EVENTS_DATA.params = {
+          curYear: dateObj.getFullYear(),
+          curMonth: dateObj.getMonth(),
+          curDate: dateObj.getDate(),
+          curEventsDate: 'all'
+        };
+      } else {
+        var dateArr = dateString.split('/');
+        dateArr = dateArr.map(function (item) {
+          return parseInt(item, 10);
+        });
+        this.$vm.CALENDAR_EVENTS_DATA.params = {
+          curYear: dateArr[0],
+          curMonth: dateArr[1] - 1,
+          curDate: dateArr[2],
+          curEventsDate: dateString
+        };
+      }
     },
     nextMonth: function nextMonth() {
       if (this.$vm.CALENDAR_EVENTS_DATA.params.curMonth < 11) {
@@ -887,7 +897,7 @@ function install(Vue) {
   };
 
   var calendarOptions = Object.assign(DEFAULT_OPTION, options);
-  var dateObj = new Date();
+
   var VueCalendarBarEventBus = new Vue({
     data: {
       CALENDAR_EVENTS_DATA: {

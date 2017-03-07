@@ -5,7 +5,7 @@ import vueEventCalendar from './vue-event-calendar.vue'
 function install (Vue, options = {}) {
   const isVueNext = Vue.version.split('.')[0] === '2'
   const inBrowser = typeof window !== 'undefined'
-
+  let dateObj = new Date()
   const DEFAULT_OPTION = {
     locale: 'zh', //en
     color: ' #f29543'
@@ -16,7 +16,16 @@ function install (Vue, options = {}) {
       this.$vm = vm
     },
     toDate (dateString) {
-      let dateArr = dateString.split('/')
+      debugger
+      if (dateString === 'all') {
+        this.$vm.CALENDAR_EVENTS_DATA.params = {
+          curYear: dateObj.getFullYear(),
+          curMonth: dateObj.getMonth(),
+          curDate: dateObj.getDate(),
+          curEventsDate: 'all'
+        }
+      } else {
+        let dateArr = dateString.split('/')
         dateArr = dateArr.map((item) => {
           return parseInt(item, 10)
         })
@@ -26,6 +35,7 @@ function install (Vue, options = {}) {
           curDate: dateArr[2],
           curEventsDate: dateString
         }
+      }
     },
     nextMonth () {
       if (this.$vm.CALENDAR_EVENTS_DATA.params.curMonth < 11) {
@@ -46,7 +56,7 @@ function install (Vue, options = {}) {
   }
 
   const calendarOptions = Object.assign(DEFAULT_OPTION, options)
-  let dateObj = new Date()
+
   const VueCalendarBarEventBus = new Vue({
     data: {
       CALENDAR_EVENTS_DATA: {
