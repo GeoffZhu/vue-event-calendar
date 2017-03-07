@@ -93,6 +93,11 @@ export default {
     calendarParams () {
       if (this.calendarParams.curEventsDate !== 'all') {
         this.handleChangeCurDay(this.calendarParams.curEventsDate)
+      } else {
+        this.selectdDayEvents = {
+          date: 'all',
+          events: this.events
+        }
       }
     },
     events () {
