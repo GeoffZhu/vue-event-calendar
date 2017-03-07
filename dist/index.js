@@ -857,7 +857,6 @@ function install(Vue) {
       this.$vm = vm;
     },
     toDate: function toDate(dateString) {
-      debugger;
       if (dateString === 'all') {
         this.$vm.CALENDAR_EVENTS_DATA.params = {
           curYear: dateObj.getFullYear(),
