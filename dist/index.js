@@ -216,6 +216,14 @@ function isEqualDateStr(dateStr1, dateStr2) {
     fullFormat: 'yyyy年MM月dd日',
     dayEventsTitle: '全部事件',
     notHaveEvents: '没有事件'
+  },
+  es: {
+    dayNames: ["Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sá"],
+    monthNames: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junlo", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
+    format: 'MM/yyyy',
+    fullFormat: 'dd/MM/yyyy',
+    dayEventsTitle: 'Todos los eventos',
+    notHaveEvents: 'Nada'
   }
 };
 
@@ -650,7 +658,9 @@ var inBrowser = typeof window !== 'undefined';
           status = void 0,
           tempArr = [],
           tempItem = void 0;
-
+      if (this.calendar.options.locale === 'es') {
+        startTimestamp = startTimestamp + 1000 * 60 * 60 * 24;
+      }
       for (var i = 0; i < 42; i++) {
         item = new Date(startTimestamp + i * 1000 * 60 * 60 * 24);
         if (this.calendar.params.curMonth === item.getMonth()) {
@@ -816,6 +826,11 @@ var inBrowser = typeof window !== 'undefined';
     calendarParams: function calendarParams() {
       if (this.calendarParams.curEventsDate !== 'all') {
         this.handleChangeCurDay(this.calendarParams.curEventsDate);
+      } else {
+        this.selectdDayEvents = {
+          date: 'all',
+          events: this.events
+        };
       }
     },
     events: function events() {
