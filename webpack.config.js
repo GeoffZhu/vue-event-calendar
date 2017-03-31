@@ -55,7 +55,7 @@ if (process.env.NODE_ENV === 'production') {
   module.exports.entry = './src/index.js'
 
   module.exports.output = {
-    path:'./dist',
+    path: path.resolve(__dirname, './dist'),
     filename:'index.js',
     library:'VueEventCalendar',
     libraryTarget: 'umd'
@@ -63,12 +63,12 @@ if (process.env.NODE_ENV === 'production') {
   module.exports.devtool = '#source-map'
   module.exports.module.rules[0].options.loaders = {
     css: ExtractTextPlugin.extract({
-      loader: 'css-loader',
-      fallbackLoader: 'vue-style-loader' // <- this is a dep of vue-loader, so no need to explicitly install if using npm3
+      use: 'css-loader',
+      fallback: 'vue-style-loader' // <- this is a dep of vue-loader, so no need to explicitly install if using npm3
     }),
     less: ExtractTextPlugin.extract({
-      loader: 'css-loader!less-loader',
-      fallbackLoader: 'vue-style-loader'
+      use: 'css-loader!less-loader',
+      fallback: 'vue-style-loader'
     })
   }
   module.exports.plugins = (module.exports.plugins || []).concat([

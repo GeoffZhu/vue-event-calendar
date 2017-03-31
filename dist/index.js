@@ -200,7 +200,7 @@ function isEqualDateStr(dateStr1, dateStr2) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony default export */ __webpack_exports__["a"] = {
+/* harmony default export */ __webpack_exports__["a"] = ({
   en: {
     dayNames: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
     monthNames: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
@@ -224,8 +224,16 @@ function isEqualDateStr(dateStr1, dateStr2) {
     fullFormat: 'dd/MM/yyyy',
     dayEventsTitle: 'Todos los eventos',
     notHaveEvents: 'Nada'
+  },
+  'pt-br': {
+    dayNames: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"],
+    monthNames: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"],
+    format: 'MM/yyyy',
+    fullFormat: 'dd/MM/yyyy',
+    dayEventsTitle: 'Todos os eventos',
+    notHaveEvents: 'Nenhum evento'
   }
-};
+});
 
 /***/ }),
 /* 3 */
@@ -486,7 +494,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-/* harmony default export */ __webpack_exports__["default"] = {
+/* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       i18n: __WEBPACK_IMPORTED_MODULE_0__i18n_js__["a" /* default */]
@@ -510,7 +518,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   methods: {
     dateTimeFormatter: __WEBPACK_IMPORTED_MODULE_1__tools_js__["b" /* dateTimeFormatter */]
   }
-};
+});
 
 /***/ }),
 /* 14 */
@@ -541,7 +549,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-/* harmony default export */ __webpack_exports__["default"] = {
+/* harmony default export */ __webpack_exports__["default"] = ({
   name: 'cal-events',
   data: function data() {
     return {
@@ -589,7 +597,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   methods: {
     dateTimeFormatter: __WEBPACK_IMPORTED_MODULE_1__tools_js__["b" /* dateTimeFormatter */]
   }
-};
+});
 
 /***/ }),
 /* 15 */
@@ -632,7 +640,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 var inBrowser = typeof window !== 'undefined';
-/* harmony default export */ __webpack_exports__["default"] = {
+/* harmony default export */ __webpack_exports__["default"] = ({
   name: 'cal-panel',
   data: function data() {
     return {
@@ -716,7 +724,7 @@ var inBrowser = typeof window !== 'undefined';
       }
     }
   }
-};
+});
 
 /***/ }),
 /* 16 */
@@ -751,7 +759,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 var inBrowser = typeof window !== 'undefined';
-/* harmony default export */ __webpack_exports__["default"] = {
+/* harmony default export */ __webpack_exports__["default"] = ({
   name: 'vue-event-calendar',
   components: {
     'cal-events': __WEBPACK_IMPORTED_MODULE_1__components_cal_events_vue___default.a,
@@ -840,7 +848,7 @@ var inBrowser = typeof window !== 'undefined';
       };
     }
   }
-};
+});
 
 /***/ }),
 /* 17 */
@@ -936,7 +944,7 @@ function install(Vue) {
   Vue.prototype.$EventCalendar = Calendar;
 }
 
-/* harmony default export */ __webpack_exports__["default"] = install;
+/* harmony default export */ __webpack_exports__["default"] = (install);
 
 if (( false ? 'undefined' : _typeof(module)) === 'object' && module.exports) {
   module.exports.install = install;
