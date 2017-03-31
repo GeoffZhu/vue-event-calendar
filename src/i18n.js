@@ -22,5 +22,13 @@ export default {
     fullFormat: 'dd/MM/yyyy',
     dayEventsTitle: 'Todos los eventos',
     notHaveEvents: 'Nada'
+  },
+  'pt-br': {
+    dayNames: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"],
+    monthNames: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"],
+    format : 'MM/yyyy',
+    fullFormat: 'dd/MM/yyyy',
+    dayEventsTitle: 'Todos os eventos',
+    notHaveEvents: 'Nenhum evento'
   }
 }
