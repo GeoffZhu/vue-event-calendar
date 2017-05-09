@@ -137,7 +137,7 @@ module.exports = function normalizeComponent (
 /* harmony export (immutable) */ __webpack_exports__["b"] = dateTimeFormatter;
 /* harmony export (immutable) */ __webpack_exports__["a"] = isEqualDateStr;
 function dateTimeFormatter(date, format) {
-  // 时间格式化辅助函数 date:毫秒数 format:'yyyy-MM-dd hh:mm:ss'
+  // format:'yyyy-MM-dd hh:mm:ss'
   if (!date || date == "") {
     return "";
   }
