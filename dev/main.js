@@ -4,7 +4,7 @@ import App from './App.vue'
 import vueEventCalendar from '../src/'
 // import vueEventCalendar from '../dist'
 // import '../dist/style.css'
-Vue.use(vueEventCalendar, {locale: 'pt-br'})
+Vue.use(vueEventCalendar, {locale: 'ja'})
 
 new Vue({
   el: '#app',
