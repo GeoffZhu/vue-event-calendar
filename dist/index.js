@@ -137,7 +137,7 @@ module.exports = function normalizeComponent (
 /* harmony export (immutable) */ __webpack_exports__["b"] = dateTimeFormatter;
 /* harmony export (immutable) */ __webpack_exports__["a"] = isEqualDateStr;
 function dateTimeFormatter(date, format) {
-  // format:'yyyy-MM-dd hh:mm:ss'
+  // 时间格式化辅助函数 date:毫秒数 format:'yyyy-MM-dd hh:mm:ss'
   if (!date || date == "") {
     return "";
   }
@@ -232,6 +232,14 @@ function isEqualDateStr(dateStr1, dateStr2) {
     fullFormat: 'dd/MM/yyyy',
     dayEventsTitle: 'Todos os eventos',
     notHaveEvents: 'Nenhum evento'
+  },
+  ja: {
+    dayNames: ["日", "月", "火", "水", "木", "金", "土"],
+    monthNames: ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"],
+    format: 'yyyy/MM',
+    fullFormat: 'yyyy/MM/dd',
+    dayEventsTitle: '全てのイベント',
+    notHaveEvents: 'イベントはありません'
   }
 });
 

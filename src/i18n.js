@@ -39,5 +39,4 @@ export default {
     dayEventsTitle: '全てのイベント',
     notHaveEvents: 'イベントはありません'
   }
-
 }
