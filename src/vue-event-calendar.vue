@@ -138,6 +138,7 @@ export default {
       left: 50%;
       top: 0;
       bottom: 0;
+      overflow: scroll;
     }
   }
 }
