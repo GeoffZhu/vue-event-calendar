@@ -92,6 +92,19 @@ export default {
 </script>
 ```
 
+## Events
+Can handle two Events, day-changed and month-changed, callback params is the date change to.
+```
+<template>
+  <vue-event-calendar
+    :events="demoEvents"
+    @day-changed="handleDayChanged"
+    @month-changed="handleMonthChanged">
+  </vue-event-calendar>
+</template>
+```
+
+
 ## API
 ```javascript
 // NextMonth

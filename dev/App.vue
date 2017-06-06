@@ -2,7 +2,7 @@
   <div id="app">
     <h1>vue-event-calendar</h1>
     <h2 class="t-center">Default template</h2>
-    <vue-event-calendar :events="demoEvents"></vue-event-calendar>
+    <vue-event-calendar :events="demoEvents" @day-changed="handleDayChanged" @month-changed="handleMonthChanged"></vue-event-calendar>
     <h2 class="t-center">Custom template</h2>
     <vue-event-calendar :events="demoEvents">
       <template scope="props">
@@ -28,6 +28,14 @@ export default {
         date: '2017/02/12',
         title: 'this is a title'
       }]
+    }
+  },
+  methods: {
+    handleDayChanged (data) {
+      console.log(data)
+    },
+    handleMonthChanged (data) {
+      console.log(data)
     }
   }
 }

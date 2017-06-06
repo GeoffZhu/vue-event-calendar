@@ -3,7 +3,8 @@
     <cal-panel
       :events="events"
       :calendar="calendarOptions"
-      @cur-day-changed="handleChangeCurDay">
+      @cur-day-changed="handleChangeCurDay"
+      @month-changed="handleMonthChanged">
     </cal-panel>
     <cal-events
       :dayEvents="selectdDayEvents"
@@ -87,6 +88,15 @@ export default {
           return isEqualDateStr(event.date, date)
         })
       }
+      this.$emit('day-changed', {
+        date: date,
+        events: this.events.filter(function(event) {
+          return isEqualDateStr(event.date, date)
+        })
+      })
+    },
+    handleMonthChanged (yearMonth) {
+      this.$emit('month-changed', yearMonth)
     }
   },
   watch: {

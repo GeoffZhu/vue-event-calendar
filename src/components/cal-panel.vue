@@ -101,9 +101,11 @@ export default {
   methods: {
     nextMonth () {
       this.$EventCalendar.nextMonth()
+      this.$emit('month-changed', this.curYearMonth)
     },
     preMonth () {
       this.$EventCalendar.preMonth()
+      this.$emit('month-changed', this.curYearMonth)
     },
     handleChangeCurday (date) {
       if (date.title != undefined) {

@@ -240,6 +240,14 @@ function isEqualDateStr(dateStr1, dateStr2) {
     fullFormat: 'yyyy/MM/dd',
     dayEventsTitle: '全てのイベント',
     notHaveEvents: 'イベントはありません'
+  },
+  ko: {
+    dayNames: ["일", "월", "화", "수", "목", "금", "토"],
+    monthNames: ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
+    format: 'yyyy/MM',
+    fullFormat: 'yyyy/MM/dd',
+    dayEventsTitle: '모든 이벤트',
+    notHaveEvents: '일정이 없습니다'
   }
 });
 
@@ -403,7 +411,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "calendar": _vm.calendarOptions
     },
     on: {
-      "cur-day-changed": _vm.handleChangeCurDay
+      "cur-day-changed": _vm.handleChangeCurDay,
+      "month-changed": _vm.handleMonthChanged
     }
   }), _vm._v(" "), _c('cal-events', {
     attrs: {
@@ -722,9 +731,11 @@ var inBrowser = typeof window !== 'undefined';
   methods: {
     nextMonth: function nextMonth() {
       this.$EventCalendar.nextMonth();
+      this.$emit('month-changed', this.curYearMonth);
     },
     preMonth: function preMonth() {
       this.$EventCalendar.preMonth();
+      this.$emit('month-changed', this.curYearMonth);
     },
     handleChangeCurday: function handleChangeCurday(date) {
       if (date.title != undefined) {
@@ -745,6 +756,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_cal_events_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_cal_events_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_cal_panel_vue__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_cal_panel_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_cal_panel_vue__);
+//
 //
 //
 //
@@ -836,6 +848,15 @@ var inBrowser = typeof window !== 'undefined';
           return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__tools_js__["a" /* isEqualDateStr */])(event.date, date);
         })
       };
+      this.$emit('day-changed', {
+        date: date,
+        events: this.events.filter(function (event) {
+          return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__tools_js__["a" /* isEqualDateStr */])(event.date, date);
+        })
+      });
+    },
+    handleMonthChanged: function handleMonthChanged(yearMonth) {
+      this.$emit('month-changed', yearMonth);
     }
   },
   watch: {

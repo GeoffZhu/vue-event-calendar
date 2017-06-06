@@ -29,7 +29,7 @@ Vue.use(vueEventCalendar, {locale: 'en'}) //可以设置语言，支持中文和
 
 ```vue
 <template>
-  <vue-event-calendar :events="demoEvents"></vue-event-calendar>
+  <vue-event-calendar :events="demoEvents" @monthChanged="" @dayChanged=""></vue-event-calendar>
 </template>
 
 <script>
@@ -44,6 +44,14 @@ export default {
         date: '2016/11/12',
         title: 'this is a title'
       }]
+    }
+  },
+  methods: {
+    monthChange (month) {
+      console.log(month)
+    },
+    dayChange (day) {
+      console.log(day)
     }
   }
 }
@@ -88,6 +96,18 @@ export default {
   }
 }
 </script>
+```
+
+## Events
+可以监听的事件有两个，选择了哪天和当月是哪月，当发生改变时，会触发监听函数。函数中的回调参数为改变后的日期。
+```
+<template>
+  <vue-event-calendar
+    :events="demoEvents"
+    @day-changed="handleDayChanged"
+    @month-changed="handleMonthChanged">
+  </vue-event-calendar>
+</template>
 ```
 
 ## API
