@@ -53,9 +53,6 @@ export default {
         let firstDay = new Date(this.calendar.params.curYear+'/'+(this.calendar.params.curMonth+1)+'/01')
         let startTimestamp = firstDay-1000*60*60*24*firstDay.getDay()
         let item, status, tempArr = [], tempItem
-        if (this.calendar.options.locale === 'es') {
-          startTimestamp = startTimestamp + 1000*60*60*24
-        }
         for (let i = 0 ; i < 42 ; i++) {
             item = new Date(startTimestamp + i*1000*60*60*24)
             if (this.calendar.params.curMonth === item.getMonth()) {
