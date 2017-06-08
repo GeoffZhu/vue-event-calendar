@@ -38,7 +38,18 @@ export default {
   props: {
     events: {
       type: Array,
-      required: true
+      required: true,
+      default: [],
+      validator (events) {
+        let validate = true
+        events.forEach((event, index) => {
+          if (!event.date) {
+            console.error('Vue-Event-Calendar-Error:' + 'Prop events Wrong at index ' + index)
+            validate = false
+          }
+        })
+        return validate
+      }
     }
   },
   computed: {
@@ -76,6 +87,7 @@ export default {
     }
   },
   created () {
+    console.log(this.events)
     if (this.calendarParams.curEventsDate !== 'all') {
       this.handleChangeCurDay(this.calendarParams.curEventsDate)
     }

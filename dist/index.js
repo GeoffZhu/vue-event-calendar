@@ -219,7 +219,7 @@ function isEqualDateStr(dateStr1, dateStr2) {
   },
   es: {
     dayNames: ["Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sá"],
-    monthNames: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junlo", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
+    monthNames: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
     format: 'MM/yyyy',
     fullFormat: 'dd/MM/yyyy',
     dayEventsTitle: 'Todos los eventos',
@@ -683,9 +683,6 @@ var inBrowser = typeof window !== 'undefined';
           status = void 0,
           tempArr = [],
           tempItem = void 0;
-      if (this.calendar.options.locale === 'es') {
-        startTimestamp = startTimestamp + 1000 * 60 * 60 * 24;
-      }
       for (var i = 0; i < 42; i++) {
         item = new Date(startTimestamp + i * 1000 * 60 * 60 * 24);
         if (this.calendar.params.curMonth === item.getMonth()) {
@@ -797,7 +794,18 @@ var inBrowser = typeof window !== 'undefined';
   props: {
     events: {
       type: Array,
-      required: true
+      required: true,
+      default: [],
+      validator: function validator(events) {
+        var validate = true;
+        events.forEach(function (event, index) {
+          if (!event.date) {
+            console.error('Vue-Event-Calendar-Error:' + 'Prop events Wrong at index ' + index);
+            validate = false;
+          }
+        });
+        return validate;
+      }
     }
   },
   computed: {
@@ -835,6 +843,7 @@ var inBrowser = typeof window !== 'undefined';
     }
   },
   created: function created() {
+    console.log(this.events);
     if (this.calendarParams.curEventsDate !== 'all') {
       this.handleChangeCurDay(this.calendarParams.curEventsDate);
     }
