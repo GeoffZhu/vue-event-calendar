@@ -87,7 +87,6 @@ export default {
     }
   },
   created () {
-    console.log(this.events)
     if (this.calendarParams.curEventsDate !== 'all') {
       this.handleChangeCurDay(this.calendarParams.curEventsDate)
     }
