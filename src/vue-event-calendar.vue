@@ -332,46 +332,45 @@ export default {
       }
     }
   }
-}
-
-.arrow-left.icon {
-  color: #000;
-  position: absolute;
-  left: 6%;
-  margin-top: 10px;
-}
-.arrow-left.icon:before {
-  content: '';
-  position: absolute;
-  left: 1px;
-  top: -5px;
-  width: 10px;
-  height: 10px;
-  border-top: solid @icon-border-size currentColor;
-  border-right: solid @icon-border-size currentColor;
-  -webkit-transform: rotate(-135deg);
-          transform: rotate(-135deg);
-}
-.arrow-right.icon {
-  color: #000;
-  position: absolute;
-  right: 6%;
-  margin-top: 10px;
-}
-.arrow-right.icon:before {
-  content: '';
-  position: absolute;
-  right: 1px;
-  top: -5px;
-  width: 10px;
-  height: 10px;
-  border-top: solid @icon-border-size currentColor;
-  border-right: solid @icon-border-size currentColor;
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
-}
-h3, p{
-  margin: 0;
-  padding: 0;
+  .arrow-left.icon {
+    color: #000;
+    position: absolute;
+    left: 6%;
+    margin-top: 10px;
+  }
+  .arrow-left.icon:before {
+    content: '';
+    position: absolute;
+    left: 1px;
+    top: -5px;
+    width: 10px;
+    height: 10px;
+    border-top: solid @icon-border-size currentColor;
+    border-right: solid @icon-border-size currentColor;
+    -webkit-transform: rotate(-135deg);
+            transform: rotate(-135deg);
+  }
+  .arrow-right.icon {
+    color: #000;
+    position: absolute;
+    right: 6%;
+    margin-top: 10px;
+  }
+  .arrow-right.icon:before {
+    content: '';
+    position: absolute;
+    right: 1px;
+    top: -5px;
+    width: 10px;
+    height: 10px;
+    border-top: solid @icon-border-size currentColor;
+    border-right: solid @icon-border-size currentColor;
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+  }
+  h3, p{
+    margin: 0;
+    padding: 0;
+  }
 }
 </style>
