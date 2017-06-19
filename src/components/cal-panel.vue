@@ -105,9 +105,7 @@ export default {
       this.$emit('month-changed', this.curYearMonth)
     },
     handleChangeCurday (date) {
-      if (date.title != undefined) {
-        this.$emit('cur-day-changed', date.date)
-      }
+      this.$emit('cur-day-changed', date.date)
     }
   }
 }

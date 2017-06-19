@@ -93,17 +93,18 @@ export default {
   },
   methods: {
     handleChangeCurDay (date) {
-      this.selectdDayEvents = {
-        date: date,
-        events: this.events.filter(function(event) {
-          return isEqualDateStr(event.date, date)
-        })
+      let events = this.events.filter(function(event) {
+        return isEqualDateStr(event.date, date)
+      })
+      if (events.length > 0) {
+        this.selectdDayEvents = {
+          date: date,
+          events: events
+        }
       }
       this.$emit('day-changed', {
         date: date,
-        events: this.events.filter(function(event) {
-          return isEqualDateStr(event.date, date)
-        })
+        events: events
       })
     },
     handleMonthChanged (yearMonth) {
@@ -293,7 +294,7 @@ export default {
       height: 100%;
     }
     .date{
-      width: 40%;
+      max-width: 60%;
       min-width: 200px;
       text-align: center;
       color: @white;

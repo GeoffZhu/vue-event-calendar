@@ -2,7 +2,11 @@
   <div id="app">
     <h1>vue-event-calendar</h1>
     <h2 class="t-center">Default template</h2>
-    <vue-event-calendar :events="demoEvents" @day-changed="handleDayChanged" @month-changed="handleMonthChanged"></vue-event-calendar>
+    <vue-event-calendar
+      :events="demoEvents"
+      @day-changed="handleDayChanged"
+      @month-changed="handleMonthChanged"
+    ></vue-event-calendar>
     <h2 class="t-center">Custom template</h2>
     <vue-event-calendar :events="demoEvents">
       <template scope="props">
