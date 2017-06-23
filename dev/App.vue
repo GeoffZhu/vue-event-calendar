@@ -36,10 +36,8 @@ export default {
   },
   methods: {
     handleDayChanged (data) {
-      console.log(data)
     },
     handleMonthChanged (data) {
-      console.log(data)
     }
   }
 }

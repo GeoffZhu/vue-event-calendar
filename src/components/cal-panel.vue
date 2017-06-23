@@ -17,9 +17,9 @@
           }">
           <p class="date-num"
             @click="handleChangeCurday(date)"
-            :style="{color: (date.title != undefined) ? calendar.options.color : 'inherit'}">{{date.status ? date.date.split('/')[2] : '&nbsp'}}</p>
+            :style="{color: (date.date!==selectedDay&&date.title != undefined) ? calendar.options.color : 'inherit'}" :class="{[calendar.options.className]:(date.date===selectedDay)}">{{date.status ? date.date.split('/')[2] : '&nbsp'}}</p>
           <span v-if="date.status ? (today==date.date) : false" class="is-today" :style="style.todayStyle" ></span>
-          <span v-if="date.status ? (date.title != undefined) : false" class="is-event" :style="style.eventStyle"></span>
+          <span v-if="date.status ? (date.title != undefined) : false" class="is-event" :style="date.date!=selectedDay?style.eventStyle:null" :class="{[calendar.options.className]:(date.date===selectedDay)}"></span>
         </div>
       </div>
     </div>
@@ -46,6 +46,10 @@ export default {
     calendar: {
       type: Object,
       required: true
+    },
+    selectedDay: {
+      type: String,
+      required: false
     }
   },
   computed: {

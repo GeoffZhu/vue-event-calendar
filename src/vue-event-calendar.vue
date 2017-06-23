@@ -3,6 +3,7 @@
     <cal-panel
       :events="events"
       :calendar="calendarOptions"
+      :selectedDay='selectdDayEvents.date'
       @cur-day-changed="handleChangeCurDay"
       @month-changed="handleMonthChanged">
     </cal-panel>
@@ -373,4 +374,5 @@ export default {
     padding: 0;
   }
 }
+
 </style>
