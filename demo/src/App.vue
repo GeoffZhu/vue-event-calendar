@@ -2,7 +2,11 @@
   <div id="app">
     <h1>vue-event-calendar</h1>
     <h2 class="t-center">Default template</h2>
-    <vue-event-calendar :events="demoEvents"></vue-event-calendar>
+    <vue-event-calendar
+      :events="demoEvents"
+      @day-changed="handleDayChanged"
+      @month-changed="handleMonthChanged"
+    ></vue-event-calendar>
     <h2 class="t-center mt150">Custom template</h2>
     <vue-event-calendar :events="demoEvents">
       <template scope="props">
@@ -33,6 +37,14 @@ export default {
         title: 'Title-3',
         desc: 'description'
       }]
+    }
+  },
+  methods: {
+    handleDayChanged (data) {
+      console.log('date-changed', data)
+    },
+    handleMonthChanged (data) {
+      console.log('month-changed', data)
     }
   }
 }

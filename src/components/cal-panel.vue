@@ -12,14 +12,17 @@
       <div class="dates" >
         <div v-for="date in dayList" class="item"
           :class="{
-            today: date.status ? (today==date.date) : false,
-            event: date.status ? (date.title != undefined) : false
+            today: date.status ? (today == date.date) : false,
+            event: date.status ? (date.title != undefined) : false,
+            [calendar.options.className] : (date.date == selectedDay)
           }">
           <p class="date-num"
             @click="handleChangeCurday(date)"
-            :style="{color: (date.date!==selectedDay&&date.title != undefined) ? calendar.options.color : 'inherit'}" :class="{[calendar.options.className]:(date.date===selectedDay)}">{{date.status ? date.date.split('/')[2] : '&nbsp'}}</p>
-          <span v-if="date.status ? (today==date.date) : false" class="is-today" :style="style.todayStyle" ></span>
-          <span v-if="date.status ? (date.title != undefined) : false" class="is-event" :style="date.date!=selectedDay?style.eventStyle:null" :class="{[calendar.options.className]:(date.date===selectedDay)}"></span>
+            :style="{color: date.title != undefined ? ((date.date == selectedDay) ? '#fff' : customColor) : 'inherit'}">
+            {{date.status ? date.date.split('/')[2] : '&nbsp'}}</p>
+          <span v-if="date.status ? (today == date.date) : false" class="is-today" :style="{backgroundColor: customColor }" ></span>
+          <span v-if="date.status ? (date.title != undefined) : false" class="is-event"
+            :style="{borderColor: customColor, backgroundColor: (date.date == selectedDay) ? customColor : 'inherit'}"></span>
         </div>
       </div>
     </div>
@@ -86,17 +89,8 @@ export default {
       let tempDate = Date.parse(new Date(`${this.calendar.params.curYear}/${this.calendar.params.curMonth+1}/01`))
       return dateTimeFormatter(tempDate, this.i18n[this.calendar.options.locale].format)
     },
-    style () {
-      let style = {
-        todayStyle: {
-          backgroundColor: this.calendar.options.color,
-          borderColor: this.calendar.options.color
-        },
-        eventStyle: {
-          borderColor: this.calendar.options.color
-        }
-      }
-      return style
+    customColor () {
+      return this.calendar.options.color
     }
   },
   methods: {

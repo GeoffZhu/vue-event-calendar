@@ -3,15 +3,15 @@
     <cal-panel
       :events="events"
       :calendar="calendarOptions"
-      :selectedDay='selectdDayEvents.date'
+      :selectedDay='selectedDayEvents.date'
       @cur-day-changed="handleChangeCurDay"
       @month-changed="handleMonthChanged">
     </cal-panel>
     <cal-events
-      :dayEvents="selectdDayEvents"
+      :dayEvents="selectedDayEvents"
       :locale="calendarOptions.options.locale"
       :color="calendarOptions.options.color">
-      <slot :showEvents="selectdDayEvents.events"></slot>
+      <slot :showEvents="selectedDayEvents.events"></slot>
     </cal-events>
   </div>
 </template>
@@ -30,7 +30,7 @@ export default {
   },
   data () {
     return {
-      selectdDayEvents: {
+      selectedDayEvents: {
         date: 'all',
         events: this.events || []  //default show all event
       }
@@ -98,7 +98,7 @@ export default {
         return isEqualDateStr(event.date, date)
       })
       if (events.length > 0) {
-        this.selectdDayEvents = {
+        this.selectedDayEvents = {
           date: date,
           events: events
         }
@@ -117,14 +117,14 @@ export default {
       if (this.calendarParams.curEventsDate !== 'all') {
         this.handleChangeCurDay(this.calendarParams.curEventsDate)
       } else {
-        this.selectdDayEvents = {
+        this.selectedDayEvents = {
           date: 'all',
           events: this.events
         }
       }
     },
     events () {
-      this.selectdDayEvents = {
+      this.selectedDayEvents = {
         date: 'all',
         events: this.events || []
       }
@@ -251,8 +251,12 @@ export default {
             z-index: 3;
           }
           &.event{
-            color: @base-orange;
             cursor: pointer;
+          }
+          &.selected-day{
+            .is-event{
+              background-color: @base-orange;
+            }
           }
           .is-event{
             content: '';
@@ -264,26 +268,23 @@ export default {
             position: absolute;
             left: 50%;
             top: 50%;
-            z-index: 2;
-            margin-left: -18px;
-            margin-top: -19px;
-          }
-          &.today{
-            color: @white;
-          }
-          .is-today{
-            content: '';
-            border: 1px solid @base-orange;
-            background-color: @base-orange;
-            border-radius: 50%;
-            width: 36px;
-            height: 36px;
-            position: absolute;
-            left: 50%;
-            top: 50%;
             z-index: 1;
             margin-left: -18px;
             margin-top: -19px;
+          }
+          .is-today{
+            content: '';
+            background-color: @base-orange;
+            border-radius: 50%;
+            opacity: .8;
+            width: 12px;
+            height: 4px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            z-index: 2;
+            margin-left: -6px;
+            margin-top: 8px;
           }
         }
       }

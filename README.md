@@ -92,8 +92,8 @@ export default {
 </script>
 ```
 
-## Events
-Can handle two Events, day-changed and month-changed, callback params is the date change to.
+## Component Events
+Can handle two Events, @day-changed and @month-changed, callback params like ``` {date: '2017/06/23', events: []} ```.
 
 ```javascript
 <template>
@@ -104,7 +104,6 @@ Can handle two Events, day-changed and month-changed, callback params is the dat
   </vue-event-calendar>
 </template>
 ```
-
 
 ## API
 ```javascript
@@ -127,4 +126,9 @@ npm run dev  //develop
 npm run build //production
 ```
 
+## Change log
 
+##### 1.3.6 -> 1.4.0
+
+- Remove today background, use a small dot below the date
+- Increase the selected date style
