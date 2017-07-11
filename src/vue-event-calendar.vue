@@ -97,11 +97,9 @@ export default {
       let events = this.events.filter(function(event) {
         return isEqualDateStr(event.date, date)
       })
-      if (events.length > 0) {
-        this.selectedDayEvents = {
-          date: date,
-          events: events
-        }
+      this.selectedDayEvents = {
+        date: date,
+        events: events
       }
       this.$emit('day-changed', {
         date: date,

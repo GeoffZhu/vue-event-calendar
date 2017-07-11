@@ -867,12 +867,10 @@ var inBrowser = typeof window !== 'undefined';
       var events = this.events.filter(function (event) {
         return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__tools_js__["a" /* isEqualDateStr */])(event.date, date);
       });
-      if (events.length > 0) {
-        this.selectedDayEvents = {
-          date: date,
-          events: events
-        };
-      }
+      this.selectedDayEvents = {
+        date: date,
+        events: events
+      };
       this.$emit('day-changed', {
         date: date,
         events: events
