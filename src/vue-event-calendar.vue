@@ -97,9 +97,11 @@ export default {
       let events = this.events.filter(function(event) {
         return isEqualDateStr(event.date, date)
       })
-      this.selectedDayEvents = {
-        date: date,
-        events: events
+      if (events.length > 0) {
+        this.selectedDayEvents = {
+          date: date,
+          events: events
+        }
       }
       this.$emit('day-changed', {
         date: date,
@@ -113,7 +115,13 @@ export default {
   watch: {
     calendarParams () {
       if (this.calendarParams.curEventsDate !== 'all') {
-        this.handleChangeCurDay(this.calendarParams.curEventsDate)
+        let events = this.events.filter(event => {
+          return isEqualDateStr(event.date, this.calendarParams.curEventsDate)
+        })
+        this.selectedDayEvents = {
+          date: this.calendarParams.curEventsDate,
+          events
+        }
       } else {
         this.selectedDayEvents = {
           date: 'all',
