@@ -256,6 +256,14 @@ function isEqualDateStr(dateStr1, dateStr2) {
     fullFormat: 'dd/MM/yyyy',
     dayEventsTitle: 'Tous les événements',
     notHaveEvents: 'Aucun événement'
+  },
+  it: {
+    dayNames: ["Dom", "Lun", "Mar", "Mer", "Gio", "Ven", "Sab"],
+    monthNames: ["Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno", "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"],
+    format: 'MM/yyyy',
+    fullFormat: 'dd/MM/yyyy',
+    dayEventsTitle: 'Tutti gli eventi',
+    notHaveEvents: 'Nessun evento'
   }
 });
 
@@ -750,7 +758,9 @@ var inBrowser = typeof window !== 'undefined';
       this.$emit('month-changed', this.curYearMonth);
     },
     handleChangeCurday: function handleChangeCurday(date) {
-      this.$emit('cur-day-changed', date.date);
+      if (date.status) {
+        this.$emit('cur-day-changed', date.date);
+      }
     }
   }
 });
@@ -867,10 +877,12 @@ var inBrowser = typeof window !== 'undefined';
       var events = this.events.filter(function (event) {
         return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__tools_js__["a" /* isEqualDateStr */])(event.date, date);
       });
-      this.selectedDayEvents = {
-        date: date,
-        events: events
-      };
+      if (events.length > 0) {
+        this.selectedDayEvents = {
+          date: date,
+          events: events
+        };
+      }
       this.$emit('day-changed', {
         date: date,
         events: events
@@ -882,8 +894,16 @@ var inBrowser = typeof window !== 'undefined';
   },
   watch: {
     calendarParams: function calendarParams() {
+      var _this = this;
+
       if (this.calendarParams.curEventsDate !== 'all') {
-        this.handleChangeCurDay(this.calendarParams.curEventsDate);
+        var events = this.events.filter(function (event) {
+          return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__tools_js__["a" /* isEqualDateStr */])(event.date, _this.calendarParams.curEventsDate);
+        });
+        this.selectedDayEvents = {
+          date: this.calendarParams.curEventsDate,
+          events: events
+        };
       } else {
         this.selectedDayEvents = {
           date: 'all',
