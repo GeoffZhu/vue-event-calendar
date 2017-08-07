@@ -82,7 +82,7 @@ export default {
           curYear: dateObj.getFullYear(),
           curMonth: dateObj.getMonth(),
           curDate: dateObj.getDate(),
-          curEventsDate: dateString
+          curEventsDate: 'all'
         }
       }
     }
