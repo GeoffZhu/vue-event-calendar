@@ -51,17 +51,9 @@ export default {
 }
 </script>
 ```
-## Customization
+## Customization event template
 If you want customization event template. required Vue: ^2.1.0. Because I use new feature(Scoped Slots) of ^2.1.0
 
-#### Customization color
-
-```javascript
-//When Vue.use, you can set main color
-Vue.use(vueEventCalendar, {locale: 'en', color: '#4fc08d'})
-```
-
-#### Customization event template
 ```vue
 <template>
   <vue-event-calendar :events="demoEvents">
@@ -105,6 +97,18 @@ Can handle two Events, @day-changed and @month-changed, callback params like ```
 </template>
 ```
 
+## Options
+
+```
+  // When Vue.use, options
+  {
+    locale: 'en',
+    color: 'black', //Set main color
+    className: 'Custom className for current clicked date', // (default: 'selected-day')
+    weekStartOn: 'week Start on which day'  // Can be: 1, 2, 3, 4, 5, 6, 0 (default: 0)
+  }
+```
+
 ## API
 ```javascript
 // NextMonth
@@ -132,3 +136,7 @@ npm run build //production
 
 - Remove today background, use a small dot below the date
 - Increase the selected date style
+
+##### 1.4.0 -> 1.4.8
+
+- Add week start on

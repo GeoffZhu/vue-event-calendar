@@ -7,7 +7,11 @@
     </div>
     <div class="cal-body">
       <div class="weeks">
-        <span v-for="dayName in i18n[calendar.options.locale].dayNames" class="item">{{dayName}}</span>
+        <span
+          v-for="(dayName, dayIndex) in i18n[calendar.options.locale].dayNames"
+          class="item">
+          {{i18n[calendar.options.locale].dayNames[(dayIndex + calendar.options.weekStartOn) % 7]}}
+        </span>
       </div>
       <div class="dates" >
         <div v-for="date in dayList" class="item"
@@ -60,7 +64,7 @@ export default {
         let firstDay = new Date(this.calendar.params.curYear, this.calendar.params.curMonth, 1)
 
         let startDate = new Date(firstDay)
-        startDate.setDate(firstDay.getDate() - firstDay.getDay())
+        startDate.setDate(firstDay.getDate() - firstDay.getDay() + this.calendar.options.weekStartOn)
 
         let item, status, tempArr = [], tempItem
         for (let i = 0 ; i < 42 ; i++) {

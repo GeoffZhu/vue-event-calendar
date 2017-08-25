@@ -57,17 +57,9 @@ export default {
 }
 </script>
 ```
-## 自定义
+## 自定义事件模版（可以允许你展示更多信息）
 vue-event-calendar允许自定义事件模版，但是这个功能需要Vue 2.1.0版本以上才可以使用。原因是我试用了2.1.0以上才有的新功能作用域插槽(Scoped Slots)。
 
-#### 自定义颜色
-
-```javascript
-//When Vue.use, you can give a color
-Vue.use(vueEventCalendar, {locale: 'en', color: '#4fc08d'})
-```
-
-#### 自定义事件模版（可以允许你展示更多信息）
 ```vue
 <template>
   <vue-event-calendar :events="demoEvents">
@@ -98,7 +90,7 @@ export default {
 </script>
 ```
 
-## Events
+## 组件事件
 可以监听的事件有两个，选择了哪天和当月是哪月，当发生改变时，会触发监听函数。函数中的回调参数为改变后的日期。
 ```
 <template>
@@ -108,6 +100,18 @@ export default {
     @month-changed="handleMonthChanged">
   </vue-event-calendar>
 </template>
+```
+
+## Options
+
+```
+  // 当 Vue.use时, 可以设置的参数
+  {
+    locale: 'en',
+    color: 'black', //Set main color
+    className: 'Custom className for current clicked date', // (default: 'selected-day')
+    weekStartOn: 'week Start on which day'  // Can be: 1, 2, 3, 4, 5, 6, 0 (default: 0)
+  }
 ```
 
 ## API
