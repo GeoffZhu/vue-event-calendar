@@ -13,7 +13,7 @@
   },
   "main": "dist/index.js",
   "dependencies": {
-    "vue": "^2.1.0"
+    "vue": "^2.1.8"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",
@@ -27,7 +27,7 @@
     "less-loader": "^2.2.3",
     "style-loader": "^0.13.1",
     "vue-loader": "^10.0.0",
-    "vue-template-compiler": "^2.1.0",
+    "vue-template-compiler": "^2.1.8",
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.3.0"
   },
