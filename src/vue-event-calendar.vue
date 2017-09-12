@@ -198,12 +198,12 @@ export default {
     height: 8px;
   }
   ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 2px #c27736;
+    box-shadow: inset 0 0 2px rgba(0,0,0,.2);
     border-radius: 5px;
   }
   ::-webkit-scrollbar-thumb {
     border-radius: 5px;
-    background: #c27736;
+    background: rgba(0,0,0,.2);
   }
   .cal-wrapper{
     .cal-header{
