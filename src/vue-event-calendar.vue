@@ -311,9 +311,10 @@ export default {
   .events-wrapper{
     border-radius: 10px;
     .cal-events{
-      height: 100%;
+      height: 95%;
       overflow-y: auto;
       padding: 0 5px;
+      margin: 15px 0;
     }
     .date{
       max-width: 60%;
@@ -333,6 +334,9 @@ export default {
       border-radius: 5px;
       color: #323232;
       position: relative;
+      &:first-child{
+        margin-top: 0;
+      }
       .title{
         height: 40px;
         line-height: 40px;
