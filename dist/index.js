@@ -264,6 +264,14 @@ module.exports = function normalizeComponent (
     fullFormat: 'dd/MM/yyyy',
     dayEventsTitle: 'Tutti gli eventi',
     notHaveEvents: 'Nessun evento'
+  },
+  ru: {
+    dayNames: ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
+    monthNames: ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"],
+    format: 'MM/yyyy',
+    fullFormat: 'dd/MM/yyyy',
+    dayEventsTitle: 'Все события',
+    notHaveEvents: 'События отсутствуют'
   }
 });
 
@@ -517,9 +525,16 @@ var inBrowser = typeof window !== 'undefined';
   computed: {
     dayList: function dayList() {
       var firstDay = new Date(this.calendar.params.curYear, this.calendar.params.curMonth, 1);
+      var dayOfWeek = firstDay.getDay();
+      // 根据当前日期计算偏移量
+      if (this.calendar.options.weekStartOn > dayOfWeek) {
+        dayOfWeek = dayOfWeek - this.calendar.options.weekStartOn + 7;
+      } else if (this.calendar.options.weekStartOn < dayOfWeek) {
+        dayOfWeek = dayOfWeek - this.calendar.options.weekStartOn;
+      }
 
       var startDate = new Date(firstDay);
-      startDate.setDate(firstDay.getDate() - firstDay.getDay() + this.calendar.options.weekStartOn);
+      startDate.setDate(firstDay.getDate() - dayOfWeek);
 
       var item = void 0,
           status = void 0,

@@ -62,9 +62,16 @@ export default {
   computed: {
     dayList () {
         let firstDay = new Date(this.calendar.params.curYear, this.calendar.params.curMonth, 1)
+        let dayOfWeek = firstDay.getDay()
+        // 根据当前日期计算偏移量
+        if (this.calendar.options.weekStartOn > dayOfWeek) {
+          dayOfWeek = dayOfWeek - this.calendar.options.weekStartOn + 7
+        } else if (this.calendar.options.weekStartOn < dayOfWeek) {
+          dayOfWeek = dayOfWeek - this.calendar.options.weekStartOn
+        }
 
         let startDate = new Date(firstDay)
-        startDate.setDate(firstDay.getDate() - firstDay.getDay() + this.calendar.options.weekStartOn)
+        startDate.setDate(firstDay.getDate() - dayOfWeek)
 
         let item, status, tempArr = [], tempItem
         for (let i = 0 ; i < 42 ; i++) {
