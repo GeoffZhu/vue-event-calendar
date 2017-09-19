@@ -272,6 +272,14 @@ module.exports = function normalizeComponent (
     fullFormat: 'dd/MM/yyyy',
     dayEventsTitle: 'Все события',
     notHaveEvents: 'События отсутствуют'
+  },
+  sv: {
+    dayNames: ["Sön", "Mån", "Tis", "Ons", "Tor", "Fre", "Lör"],
+    monthNames: ["Januari", "Februari", "Mars", "April", "Maj", "Juni", "Juli", "Augusti", "September", "Oktober", "November", "December"],
+    format: 'MM/yyyy',
+    fullFormat: 'dd/MM/yyyy',
+    dayEventsTitle: 'Alla händelser',
+    notHaveEvents: 'Inga händelser'
   }
 });
 

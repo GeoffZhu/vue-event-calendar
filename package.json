@@ -1,7 +1,7 @@
 {
   "name": "vue-event-calendar",
   "description": "A simple calendar to mark events for Vue2",
-  "version": "1.4.10",
+  "version": "1.4.11",
   "author": "geoffzhu <geoffzhu1992@gmail.com>",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --inline --hot",
