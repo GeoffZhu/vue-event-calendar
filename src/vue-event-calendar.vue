@@ -11,7 +11,7 @@
       :dayEvents="selectedDayEvents"
       :locale="calendarOptions.options.locale"
       :color="calendarOptions.options.color">
-      <slot :showEvents="selectedDayEvents.events"></slot>
+      <slot :showEvents="selectedDayEvents.events" :date="selectedDayEvents.date"></slot>
     </cal-events>
   </div>
 </template>
@@ -97,12 +97,13 @@ export default {
       let events = this.events.filter(function(event) {
         return isEqualDateStr(event.date, date)
       })
-      if (events.length > 0) {
+
+      //if (events.length > 0) {
         this.selectedDayEvents = {
           date: date,
           events: events
         }
-      }
+      //}
       this.$emit('day-changed', {
         date: date,
         events: events
@@ -268,6 +269,18 @@ export default {
             position: relative;
             z-index: 3;
           }
+          &.clickable_item {
+            cursor: pointer;
+
+            &.selected-day {
+              color: @base-orange;
+              font-weight: bold;
+            }
+          }
+          &.clickable_item:hover {
+            color: @base-orange;
+            font-weight: bold;
+          }
           &.event{
             cursor: pointer;
           }
@@ -326,6 +339,9 @@ export default {
       margin: 0 auto;
       font-size: 22px;
     }
+    
+    
+
     .event-item{
       padding: 5px 20px;
       margin-top: 15px;

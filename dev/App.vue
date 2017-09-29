@@ -10,6 +10,9 @@
     <h2 class="t-center">Custom template</h2>
     <vue-event-calendar :events="demoEvents">
       <template scope="props">
+        <div class="add-item" v-if="props.date != 'all'">
+          +
+        </div>
         <div v-for="(event, index) in props.showEvents" class="event-item">
           <!-- In here do whatever you want, make you owner event template -->
           {{event}}
@@ -104,4 +107,21 @@ a {
   text-align: center;
   margin: 20px;
 }
+
+.add-item {
+  padding: 10px 20px;
+  margin-top: 15px;
+  box-shadow: 0 3px 11px 2px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  border-radius: 5px;
+  color: #323232;
+  position: relative;
+  cursor: pointer;
+  color: gray;
+  font-size: 22pt;
+  text-align: center;
+
+}
+
+
 </style>
