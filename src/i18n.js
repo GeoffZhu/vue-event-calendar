@@ -78,5 +78,13 @@ export default {
     fullFormat: 'dd/MM/yyyy',
     dayEventsTitle: 'Alla händelser',
     notHaveEvents: 'Inga händelser'
+  },
+  de: {
+    dayNames: ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"],
+    monthNames: ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"],
+    format: 'MM/yyyy',
+    fullFormat: 'dd.MM.yyyy',
+    dayEventsTitle: 'Alle Veranstaltungen',
+    notHaveEvents: 'Keine Veranstaltungen'
   }
 }
