@@ -41,7 +41,8 @@ export default {
       demoEvents: [{
         date: '2016/12/15',
         title: 'Foo',
-        desc: 'longlonglong description'
+        desc: 'longlonglong description',
+        customClass: 'disabled highlight'
       },{
         date: '2016/11/12',
         title: 'Bar'
