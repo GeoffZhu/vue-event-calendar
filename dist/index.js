@@ -531,8 +531,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
 
 
@@ -1072,7 +1070,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
           _vm.handleChangeCurday(date)
         }
       }
-    }, [_vm._v("\n          " + _vm._s(date.status ? date.date.split('/')[2] : ' '))]), _vm._v(" "), _c('p', [_vm._v(_vm._s(date.customClass))]), _vm._v(" "), (date.status ? (_vm.today == date.date) : false) ? _c('span', {
+    }, [_vm._v("\n          " + _vm._s(date.status ? date.date.split('/')[2] : ' '))]), _vm._v(" "), (date.status ? (_vm.today == date.date) : false) ? _c('span', {
       staticClass: "is-today",
       style: ({
         backgroundColor: _vm.customColor
