@@ -39,13 +39,13 @@ export default {
   data () {
     return {
       demoEvents: [{
+        date: '2016/11/12', // Required
+        title: 'Foo' // Required
+      }, {
         date: '2016/12/15',
-        title: 'Foo',
-        desc: 'longlonglong description',
-        customClass: 'disabled highlight'
-      },{
-        date: '2016/11/12',
-        title: 'Bar'
+        title: 'Bar',
+        desc: 'description',
+        customClass: 'disabled highlight' // Custom classes to an calendar cell
       }]
     }
   }

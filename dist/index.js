@@ -587,13 +587,14 @@ var inBrowser = typeof window !== 'undefined';
         }
         tempItem = {
           date: item.getFullYear() + '/' + (item.getMonth() + 1) + '/' + item.getDate(),
-          status: status
+          status: status,
+          customClass: []
         };
         this.events.forEach(function (event) {
           if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__tools_js__["a" /* isEqualDateStr */])(event.date, tempItem.date)) {
             tempItem.title = event.title;
             tempItem.desc = event.desc || '';
-            tempItem.customClass = event.customClass || '';
+            if (event.customClass) tempItem.customClass.push(event.customClass);
           }
         });
         tempArr.push(tempItem);
@@ -1054,7 +1055,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "dates"
   }, _vm._l((_vm.dayList), function(date) {
     return _c('div', {
-      key: date,
+      key: date.date,
       staticClass: "item",
       class: [( _obj = {
         today: date.status ? (_vm.today == date.date) : false,
