@@ -296,6 +296,14 @@ module.exports = function normalizeComponent (
     fullFormat: 'dd.MM.yyyy',
     dayEventsTitle: 'Alle Veranstaltungen',
     notHaveEvents: 'Keine Veranstaltungen'
+  },
+  vi: {
+    dayNames: ["T2", "T3", "T4", "T5", "T6", "T7", "CN"],
+    monthNames: ["Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4", "Tháng 5", "Tháng 6", "Tháng 7", "Tháng 8", "Tháng 9", "Tháng 10", "Tháng 11", "Tháng 12"],
+    format: 'MM/yyyy',
+    fullFormat: 'dd/MM/yyyy',
+    dayEventsTitle: 'Tất cả sự kiện',
+    notHaveEvents: 'Không có sự kiện nào'
   }
 });
 
@@ -519,6 +527,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -550,7 +562,7 @@ var inBrowser = typeof window !== 'undefined';
     dayList: function dayList() {
       var firstDay = new Date(this.calendar.params.curYear, this.calendar.params.curMonth, 1);
       var dayOfWeek = firstDay.getDay();
-      // 根据当前日期计算偏移量
+      // 根据当前日期计算偏移量 // Calculate the offset based on the current date
       if (this.calendar.options.weekStartOn > dayOfWeek) {
         dayOfWeek = dayOfWeek - this.calendar.options.weekStartOn + 7;
       } else if (this.calendar.options.weekStartOn < dayOfWeek) {
@@ -581,6 +593,7 @@ var inBrowser = typeof window !== 'undefined';
           if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__tools_js__["a" /* isEqualDateStr */])(event.date, tempItem.date)) {
             tempItem.title = event.title;
             tempItem.desc = event.desc || '';
+            tempItem.customClass = event.customClass || '';
           }
         });
         tempArr.push(tempItem);
@@ -1034,17 +1047,19 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "weeks"
   }, _vm._l((_vm.i18n[_vm.calendar.options.locale].dayNames), function(dayName, dayIndex) {
     return _c('span', {
+      key: dayIndex,
       staticClass: "item"
     }, [_vm._v("\n        " + _vm._s(_vm.i18n[_vm.calendar.options.locale].dayNames[(dayIndex + _vm.calendar.options.weekStartOn) % 7]) + "\n      ")])
   })), _vm._v(" "), _c('div', {
     staticClass: "dates"
   }, _vm._l((_vm.dayList), function(date) {
     return _c('div', {
+      key: date,
       staticClass: "item",
-      class: ( _obj = {
+      class: [( _obj = {
         today: date.status ? (_vm.today == date.date) : false,
-          event: date.status ? (date.title != undefined) : false
-      }, _obj[_vm.calendar.options.className] = (date.date == _vm.selectedDay), _obj )
+        event: date.status ? (date.title != undefined) : false
+      }, _obj[_vm.calendar.options.className] = (date.date == _vm.selectedDay), _obj ) ].concat( date.customClass)
     }, [_c('p', {
       staticClass: "date-num",
       style: ({

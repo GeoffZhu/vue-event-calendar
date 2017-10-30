@@ -9,17 +9,21 @@
       <div class="weeks">
         <span
           v-for="(dayName, dayIndex) in i18n[calendar.options.locale].dayNames"
-          class="item">
+          class="item"
+          :key="dayIndex"
+          >
           {{i18n[calendar.options.locale].dayNames[(dayIndex + calendar.options.weekStartOn) % 7]}}
         </span>
       </div>
       <div class="dates" >
         <div v-for="date in dayList" class="item"
-          :class="{
+          :class="[{
             today: date.status ? (today == date.date) : false,
             event: date.status ? (date.title != undefined) : false,
             [calendar.options.className] : (date.date == selectedDay)
-          }">
+          }, ...date.customClass]"
+          :key="date"
+          >
           <p class="date-num"
             @click="handleChangeCurday(date)"
             :style="{color: date.title != undefined ? ((date.date == selectedDay) ? '#fff' : customColor) : 'inherit'}">
@@ -63,7 +67,7 @@ export default {
     dayList () {
         let firstDay = new Date(this.calendar.params.curYear, this.calendar.params.curMonth, 1)
         let dayOfWeek = firstDay.getDay()
-        // 根据当前日期计算偏移量
+        // 根据当前日期计算偏移量 // Calculate the offset based on the current date
         if (this.calendar.options.weekStartOn > dayOfWeek) {
           dayOfWeek = dayOfWeek - this.calendar.options.weekStartOn + 7
         } else if (this.calendar.options.weekStartOn < dayOfWeek) {
@@ -91,6 +95,7 @@ export default {
               if (isEqualDateStr(event.date, tempItem.date)) {
                 tempItem.title = event.title
                 tempItem.desc = event.desc || ''
+                tempItem.customClass = event.customClass || ''
               }
             })
             tempArr.push(tempItem)
