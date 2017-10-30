@@ -52,6 +52,18 @@ export default {
 }
 </script>
 ```
+
+## Custom date title
+
+```vue
+<template>
+  <vue-event-calendar :title="title" :events="demoEvents" @dayChanged="handleDayChange"></vue-event-calendar>
+</template>
+```
+
+In most cases, the default date string is enough，but when you want a custom date title, you can give a prop ```title```.
+It is important to noticed that the title will be replaced with a static String you passed in. You need to monitor the dayChanged event and change the title by youself.
+
 ## Customization event template
 If you want customization event template. required Vue: ^2.1.0. Because I use new feature(Scoped Slots) of ^2.1.0
 

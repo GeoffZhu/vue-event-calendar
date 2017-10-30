@@ -28,6 +28,7 @@ export default {
     'cal-event-item': calEventItem
   },
   props: {
+    title: String,
     dayEvents: {
       type: Object,
       required: true
@@ -43,6 +44,7 @@ export default {
   },
   computed: {
     dayEventsTitle () {
+      if (this.title) return this.title
       if (this.dayEvents.date !== 'all') {
         let tempDate
         if (this.dayEvents.events.length !== 0) {

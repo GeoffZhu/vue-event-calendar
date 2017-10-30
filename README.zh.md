@@ -58,6 +58,17 @@ export default {
 }
 </script>
 ```
+
+## 自定义日期标题
+
+```vue
+<template>
+  <vue-event-calendar :title="title" :events="demoEvents" @dayChanged="handleDayChange"></vue-event-calendar>
+</template>
+```
+
+当你使用自定义日历标题的时候，需要注意，标题将被替换成静态的你传入的String，你需要手动监听dayChanged事件去改变title。
+
 ## 自定义事件模版（可以允许你展示更多信息）
 vue-event-calendar允许自定义事件模版，但是这个功能需要Vue 2.1.0版本以上才可以使用。原因是我试用了2.1.0以上才有的新功能作用域插槽(Scoped Slots)。
 

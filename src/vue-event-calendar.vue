@@ -8,6 +8,7 @@
       @month-changed="handleMonthChanged">
     </cal-panel>
     <cal-events
+      :title="title"
       :dayEvents="selectedDayEvents"
       :locale="calendarOptions.options.locale"
       :color="calendarOptions.options.color">
@@ -37,6 +38,7 @@ export default {
     }
   },
   props: {
+    title: String,
     events: {
       type: Array,
       required: true,
