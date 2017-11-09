@@ -444,6 +444,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     'cal-event-item': __WEBPACK_IMPORTED_MODULE_2__cal_event_item_vue___default.a
   },
   props: {
+    title: String,
     dayEvents: {
       type: Object,
       required: true
@@ -459,6 +460,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
   computed: {
     dayEventsTitle: function dayEventsTitle() {
+      if (this.title) return this.title;
       if (this.dayEvents.date !== 'all') {
         var tempDate = void 0;
         if (this.dayEvents.events.length !== 0) {
@@ -658,6 +660,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -681,6 +684,7 @@ var inBrowser = typeof window !== 'undefined';
   },
 
   props: {
+    title: String,
     events: {
       type: Array,
       required: true,
@@ -1008,6 +1012,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }), _vm._v(" "), _c('cal-events', {
     attrs: {
+      "title": _vm.title,
       "dayEvents": _vm.selectedDayEvents,
       "locale": _vm.calendarOptions.options.locale,
       "color": _vm.calendarOptions.options.color
