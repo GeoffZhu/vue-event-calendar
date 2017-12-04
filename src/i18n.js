@@ -74,8 +74,8 @@ export default {
   ru: {
     dayNames: ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
     monthNames: ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"],
-    format: 'MM/yyyy',
-    fullFormat: 'dd/MM/yyyy',
+    format: 'MM.yyyy',
+    fullFormat: 'dd.MM.yyyy',
     dayEventsTitle: 'Все события',
     notHaveEvents: 'События отсутствуют'
   },
