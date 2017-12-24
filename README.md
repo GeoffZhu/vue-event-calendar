@@ -153,3 +153,7 @@ npm run build //production
 ##### 1.4.0 -> 1.4.8
 
 - Add week start on
+
+## License
+
+[MIT](https://opensource.org/licenses/MIT)

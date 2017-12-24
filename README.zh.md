@@ -154,3 +154,8 @@ npm run build //production
 
 - 去除了当天的背景，改用一个在日期下面的小圆点替代
 - 增加选中日期样式
+
+
+## License
+
+[MIT](https://opensource.org/licenses/MIT)
