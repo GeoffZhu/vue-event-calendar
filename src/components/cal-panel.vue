@@ -70,7 +70,7 @@ export default {
       // 根据当前日期计算偏移量 // Calculate the offset based on the current date
       if (this.calendar.options.weekStartOn > dayOfWeek) {
         dayOfWeek = dayOfWeek - this.calendar.options.weekStartOn + 7
-      } else if (this.calendar.options.weekStartOn < dayOfWeek) {
+      } else {
         dayOfWeek = dayOfWeek - this.calendar.options.weekStartOn
       }
 

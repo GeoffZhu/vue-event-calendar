@@ -276,8 +276,8 @@ module.exports = function normalizeComponent (
   ru: {
     dayNames: ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
     monthNames: ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"],
-    format: 'MM/yyyy',
-    fullFormat: 'dd/MM/yyyy',
+    format: 'MM.yyyy',
+    fullFormat: 'dd.MM.yyyy',
     dayEventsTitle: 'Все события',
     notHaveEvents: 'События отсутствуют'
   },
@@ -567,7 +567,7 @@ var inBrowser = typeof window !== 'undefined';
       // 根据当前日期计算偏移量 // Calculate the offset based on the current date
       if (this.calendar.options.weekStartOn > dayOfWeek) {
         dayOfWeek = dayOfWeek - this.calendar.options.weekStartOn + 7;
-      } else if (this.calendar.options.weekStartOn < dayOfWeek) {
+      } else {
         dayOfWeek = dayOfWeek - this.calendar.options.weekStartOn;
       }
 
