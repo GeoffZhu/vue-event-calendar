@@ -172,7 +172,7 @@ export default {
     }
   }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .__vev_calendar-wrapper{
     .cal-wrapper{
       width: 100%;
