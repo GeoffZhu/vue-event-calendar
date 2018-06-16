@@ -1,5 +1,5 @@
 <template>
-  <div class="events-wrapper" :style="bgColor">
+  <div class="events-wrapper">
     <h2 class="date">
       {{dayEventsTitle}}
     </h2>
