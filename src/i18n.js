@@ -118,5 +118,13 @@ export default {
     fullFormat: 'dd/MM/yyyy',
     dayEventsTitle: 'เหตุการณ์',
     notHaveEvents: 'ไม่มีเหตุการณใดๆ'
+  },
+  hu: {
+    dayNames: ["Hé", "Ke", "Sze", "Сs", "Pé", "Szo", "Va"],
+    monthNames: ["Január", "Február", "Március", "Április", "Május", "Június", "Július", "Augusztus", "Szeptember", "Október", "November", "December"],
+    format: 'yyyy MM',
+    fullFormat: 'yyyy.MM.dd',
+    dayEventsTitle: 'Események',
+    notHaveEvents: 'Nincs esemény'
   }
 }
