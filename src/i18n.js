@@ -87,6 +87,22 @@ export default {
     dayEventsTitle: 'Alla händelser',
     notHaveEvents: 'Inga händelser'
   },
+  no: {
+    dayNames: ["Søn", "Man", "Tir", "Ons", "Tor", "Fre", "Lør"],
+    monthNames: ["Januar", "Februar", "Mars", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Desember"],
+    format: 'MM/yyyy',
+    fullFormat: 'dd/MM/yyyy',
+    dayEventsTitle: 'Alle hendelser',
+    notHaveEvents: 'Ingen hendelser'
+  },
+  'no-nn': {
+    dayNames: ["Søn", "Mån", "Tys", "Ons", "Tor", "Fre", "Lau"],
+    monthNames: ["Januar", "Februar", "Mars", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Desember"],
+    format: 'MM/yyyy',
+    fullFormat: 'dd/MM/yyyy',
+    dayEventsTitle: 'Alle hendinger',
+    notHaveEvents: 'Ingen hendinger'
+  },
   de: {
     dayNames: ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"],
     monthNames: ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"],
