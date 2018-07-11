@@ -5,7 +5,7 @@
     </h2>
     <div class="cal-events">
       <slot>
-        <div v-for="(event, index) in events" class="event-item">
+        <div v-for="(event, index) in events" class="event-item" :key="index">
           <cal-event-item :event="event" :index="index" :locale="locale"></cal-event-item>
         </div>
       </slot>

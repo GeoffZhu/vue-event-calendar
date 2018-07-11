@@ -127,6 +127,14 @@ export default {
     dayEventsTitle: 'Усі події',
     notHaveEvents: 'Події відсутні'
   },
+  th: {
+    dayNames: ["อาทิตย์", "จันทร์", "อังคาร", "พุธ", "พฤหัสบดี", "ศุกร์", "เสาร์"],
+    monthNames: ["มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"],
+    format: 'MM/yyyy',
+    fullFormat: 'dd/MM/yyyy',
+    dayEventsTitle: 'เหตุการณ์',
+    notHaveEvents: 'ไม่มีเหตุการณใดๆ'
+  },
   hu: {
     dayNames: ["Hé", "Ke", "Sze", "Сs", "Pé", "Szo", "Va"],
     monthNames: ["Január", "Február", "Március", "Április", "Május", "Június", "Július", "Augusztus", "Szeptember", "Október", "November", "December"],
