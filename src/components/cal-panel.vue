@@ -18,6 +18,7 @@
       <div class="dates" >
         <div v-for="date in dayList" class="item"
           :class="[{
+            past: date.status ? (today > date.date) : false,
             today: date.status ? (today == date.date) : false,
             event: date.status ? (date.title != undefined) : false,
             [calendar.options.className] : (date.date == selectedDay)
