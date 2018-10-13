@@ -7,11 +7,22 @@
       @cur-day-changed="handleChangeCurDay"
       @month-changed="handleMonthChanged">
     </cal-panel>
+    <!-- add by Yupi Li -->
+    <cal-events-wrapper :title="title"
+                        :dayEvents="selectedDayEvents"
+                        :locale="calendarOptions.options.locale"
+                        :color="calendarOptions.options.color"
+                        :showTitle="showTitle"
+                        v-if="showEventsWrapper">
+    </cal-events-wrapper>
+    <!-- add by Yupi Li -->
     <cal-events
-      :title="title"
-      :dayEvents="selectedDayEvents"
-      :locale="calendarOptions.options.locale"
-      :color="calendarOptions.options.color">
+            :title="title"
+            :dayEvents="selectedDayEvents"
+            :locale="calendarOptions.options.locale"
+            :color="calendarOptions.options.color"
+            :showTitle="showTitle"
+            v-if="!showEventsWrapper">
       <slot :showEvents="selectedDayEvents.events"></slot>
     </cal-events>
   </div>
@@ -19,6 +30,7 @@
 <script>
 import { isEqualDateStr} from './tools.js'
 
+import calEventsWrapper from './components/cal-events-wrapper.vue'
 import calEvents from './components/cal-events.vue'
 import calPanel from './components/cal-panel.vue'
 
@@ -27,7 +39,8 @@ export default {
   name: 'vue-event-calendar',
   components: {
     'cal-events': calEvents,
-    'cal-panel': calPanel
+    'cal-panel': calPanel,
+    'cal-events-wrapper': calEventsWrapper
   },
   data () {
     return {
@@ -39,6 +52,14 @@ export default {
   },
   props: {
     title: String,
+    showTitle: {
+        type: Boolean,
+        default: true
+    },
+    showEventsWrapper: {
+      type: Boolean,
+      default: true
+    },
     events: {
       type: Array,
       required: true,
