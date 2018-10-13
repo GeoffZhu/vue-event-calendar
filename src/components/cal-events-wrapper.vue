@@ -1,11 +1,17 @@
+<!-- add by Yupi Li -->
 <template>
-    <div class="cal-events">
-      <slot>
-        <div v-for="(event, index) in events" class="event-item" :key="index">
-          <cal-event-item :event="event" :index="index" :locale="locale"></cal-event-item>
-        </div>
-      </slot>
-    </div>
+  <div class="events-wrapper" :style="bgColor">
+    <h2 class="date" v-if="showTitle">
+      {{dayEventsTitle}}
+    </h2>
+    <slot>
+      <div class="cal-events">
+          <div v-for="(event, index) in events" class="event-item" :key="index">
+            <cal-event-item :event="event" :index="index" :locale="locale"></cal-event-item>
+          </div>
+      </div>
+    </slot>
+  </div>
 </template>
 
 <script>

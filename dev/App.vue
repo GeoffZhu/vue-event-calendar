@@ -16,7 +16,20 @@
         </div>
       </template>
     </vue-event-calendar>
+    <!-- add by Yupi Li -->
+    <h2 class="t-center">Without Events Wrapper</h2>
+    <vue-event-calendar :events="demoEvents" :showEventsWrapper="false"></vue-event-calendar>
+    <h2 class="t-center">Without Events Title</h2>
+    <vue-event-calendar :events="demoEvents" :showTitle="false">
+      <template scope="props">
+        <div v-for="(event, index) in props.showEvents" class="event-item">
+          <!-- In here do whatever you want, make you owner event template -->
+          {{event}}
+        </div>
+      </template>
+    </vue-event-calendar>
   </div>
+  <!-- add by Yupi Li -->
 </template>
 
 <script>
