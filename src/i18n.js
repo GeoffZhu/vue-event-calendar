@@ -142,5 +142,13 @@ export default {
     fullFormat: 'yyyy.MM.dd',
     dayEventsTitle: 'Események',
     notHaveEvents: 'Nincs esemény'
+  },
+  ar: {
+    dayNames: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+    monthNames: ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"],
+    format : 'MM/yyyy',
+    fullFormat: 'dd/MM/yyyy',
+    dayEventsTitle: 'كل مستجدات',
+    notHaveEvents: 'لا توجد مستجدات'
   }
 }
