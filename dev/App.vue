@@ -10,7 +10,7 @@
     <h2 class="t-center">Custom template</h2>
     <vue-event-calendar :events="demoEvents">
       <template scope="props">
-        <div v-for="(event, index) in props.showEvents" class="event-item">
+        <div v-for="(event, index) in props.showEvents" class="event-item" :key="index">
           <!-- In here do whatever you want, make you owner event template -->
           {{event}}
         </div>

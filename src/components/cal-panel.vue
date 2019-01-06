@@ -28,6 +28,8 @@
             @click="handleChangeCurday(date)"
             :style="{color: date.title != undefined ? ((date.date == selectedDay) ? '#fff' : customColor) : 'inherit'}">
             {{date.status ? date.date.split('/')[2] : '&nbsp;'}}</p>
+          <!-- 农历span -->
+          <span v-if="ldate" class = 'lday' @click="handleChangeCurday(date)" :style="{color: date.title != undefined ? ((date.date == selectedDay) ? '#fff' : customColor) : 'inherit'}">{{date.status ? date.ldate.IDayCn : '&nbsp;'}}</span>
           <span v-if="date.status ? (today == date.date) : false" class="is-today" :style="{backgroundColor: customColor }" ></span>
           <span v-if="date.status ? (date.title != undefined) : false" class="is-event"
             :style="{borderColor: customColor, backgroundColor: (date.date == selectedDay) ? customColor : 'inherit'}"></span>
@@ -40,13 +42,15 @@
 <script>
 import i18n from '../i18n.js'
 import { dateTimeFormatter, isEqualDateStr} from '../tools.js'
+import {lunarCalendar} from '../lunar.js'
 
 const inBrowser = typeof window !== 'undefined'
 export default {
   name: 'cal-panel',
   data () {
     return {
-      i18n
+      i18n,
+      lday: true // 默认为中文有农历
     }
   },
   props: {
@@ -62,6 +66,10 @@ export default {
       type: String,
       required: false
     }
+  },
+  created () {
+    // 判断是否为中文，决定是否显示农历
+    window.VueCalendarBarEventBus.CALENDAR_EVENTS_DATA.options.locale === 'zh' ? this.ldate = true : this.ldate = false;
   },
   computed: {
     dayList () {
@@ -87,11 +95,23 @@ export default {
           } else {
             status = 0
           }
-          tempItem = {
-            date: `${item.getFullYear()}/${item.getMonth()+1}/${item.getDate()}`,
-            status: status,
-            customClass: []
+          console.log(window.VueCalendarBarEventBus.CALENDAR_EVENTS_DATA.options.locale);
+          if (window.VueCalendarBarEventBus.CALENDAR_EVENTS_DATA.options.locale === 'zh') {
+            tempItem = {
+              date: `${item.getFullYear()}/${item.getMonth()+1}/${item.getDate()}`,
+              // 农历信息
+              ldate: lunarCalendar.solar2lunar(`${item.getFullYear()}`,`${item.getMonth()+1}`,`${item.getDate()}`),
+              status: status,
+              customClass: []
+            }
+          } else {
+             tempItem = {
+              date: `${item.getFullYear()}/${item.getMonth()+1}/${item.getDate()}`,
+              status: status,
+              customClass: []
+            }
           }
+          
           this.events.forEach((event) => {
             if (isEqualDateStr(event.date, tempItem.date)) {
               tempItem.title = event.title
