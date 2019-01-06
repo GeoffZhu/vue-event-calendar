@@ -159,6 +159,18 @@ export default {
       .date-num{
         line-height: 50px;
       }
+      .cal-body{
+        .dates{
+          .item{
+            span.lday{
+              font-size: 12px;
+              position: inherit;
+              top: -21px;
+              z-index: 3;
+            }
+          }
+        }
+      }
     }
     .events-wrapper{
       width: 50%;
@@ -304,7 +316,13 @@ export default {
             top: 50%;
             z-index: 2;
             margin-left: -6px;
-            margin-top: 8px;
+            margin-top: 19px;
+          }
+          .lday{
+            font-size: 12px;
+            position: inherit;
+            top: -16px;
+            z-index: 3;
           }
         }
       }
