@@ -7,6 +7,14 @@ export default {
     dayEventsTitle: 'All Events',
     notHaveEvents: 'Not Have Events'
   },
+  pl: {
+    dayNames: ["Nie", "Pon", "Wto", "Śro", "Czw", "Pią", "Sob"],
+    monthNames: ["Styczeń", "Luty", "Marzec", "Kwiecień", "Maj", "Czerwiec", "Lipiec", "Sierpień", "Wrzesień", "Październik", "Listopad", "Grudzień"],
+    format: 'MM/rrrr',
+    fullFormat: 'dd/MM/rrrr',
+    dayEventsTitle: 'All Events',
+    notHaveEvents: 'Not Have Events'
+  },
   zh: {
     dayNames: ["日", "一", "二", "三", "四", "五", "六"],
     monthNames: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
