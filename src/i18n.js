@@ -8,7 +8,7 @@ export default {
     notHaveEvents: 'Not Have Events'
   },
   pl: {
-    dayNames: ["Nie", "Pon", "Wto", "Śro", "Czw", "Pią", "Sob"],
+    dayNames: ["Nd", "Pn", "Wt", "Śr", "Cz", "Pt", "So"],
     monthNames: ["Styczeń", "Luty", "Marzec", "Kwiecień", "Maj", "Czerwiec", "Lipiec", "Sierpień", "Wrzesień", "Październik", "Listopad", "Grudzień"],
     format: 'MM/rrrr',
     fullFormat: 'dd/MM/rrrr',
