@@ -10,8 +10,8 @@ export default {
   pl: {
     dayNames: ["Nd", "Pn", "Wt", "Śr", "Cz", "Pt", "So"],
     monthNames: ["Styczeń", "Luty", "Marzec", "Kwiecień", "Maj", "Czerwiec", "Lipiec", "Sierpień", "Wrzesień", "Październik", "Listopad", "Grudzień"],
-    format: 'MM/rrrr',
-    fullFormat: 'dd/MM/rrrr',
+    format: 'MM/yyyy',
+    fullFormat: 'dd/MM/yyyy',
     dayEventsTitle: 'All Events',
     notHaveEvents: 'Not Have Events'
   },
