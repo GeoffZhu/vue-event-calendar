@@ -71,6 +71,14 @@ export default {
     dayEventsTitle: 'Tutti gli eventi',
     notHaveEvents: 'Nessun evento'
   },
+  ro: {
+    dayNames: ["Dum", "Lun", "Mar", "Mie", "Joi", "Vin", "Sâm"],
+    monthNames: ["Ianuarie", "Februarie", "Martie", "Aprilie", "Mai", "Iunie", "Iulie", "August", "Septembrie", "Octombrie", "Noiembrie", "Decembrie"],
+    format: 'MM.yyyy',
+    fullFormat: 'dd.MM.yyyy',
+    dayEventsTitle: 'Toate evenimentele',
+    notHaveEvents: 'Nu sunt evenimente'
+  },
   ru: {
     dayNames: ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
     monthNames: ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"],
